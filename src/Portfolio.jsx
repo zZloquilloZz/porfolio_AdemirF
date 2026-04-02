@@ -340,7 +340,7 @@ export default function Portfolio() {
             </button>
             <a
               className="bo"
-              href={`/ademir-portfolio/cv/CV_Ademir_Fernandez_${lang === "es" ? "ES" : "EN"}.pdf`}
+              href={`/porfolio_AdemirF/cv/CV_Ademir_Fernandez_${lang === "es" ? "ES" : "EN"}.pdf`}
               download
               target="_blank"
               rel="noopener noreferrer"
