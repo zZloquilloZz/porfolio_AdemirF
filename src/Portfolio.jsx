@@ -1,5 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { translations, camImages, ppImages, utpImages } from "./data.js";
+import {
+  SiPython, SiPostgresql, SiJavascript, SiTypescript,
+  SiReact, SiBash, SiGraphql, SiSupabase, SiNodedotjs,
+  SiKubernetes, SiGit, SiGithubactions, SiDocker,
+  SiDatadog, SiPowerbi, SiAzuredevops, SiJira, SiPostman,
+  SiDbeaver, SiVite, SiTrello, SiOracle, SiGrafana
+} from "react-icons/si";
+import { FaDatabase, FaServer, FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
+import { VscTerminalBash } from "react-icons/vsc";
+import { MdEmail } from "react-icons/md";
 
 // ============================================
 // CONFIGURACIÓN / CONSTANTES
@@ -203,132 +213,37 @@ const EDUCATION_ICONS = {
 // SKILL ICONS
 // ============================================
 const SKILL_ICONS = {
-  Python: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M7.5 2C5.5 2 5 3 5 4v2h3v.5H4.5C3 6.5 2 7.5 2 9.5s1 3 2.5 3H6v-2c0-1 1-2 2-2h3c1 0 2-1 2-2V4c0-1-.5-2-2.5-2h-3zm-.5 1c.3 0 .5.2.5.5s-.2.5-.5.5-.5-.2-.5-.5.2-.5.5-.5z" fill="#3776AB"/>
-      <path d="M8.5 14c2 0 2.5-1 2.5-2v-2h-3v-.5h3.5c1.5 0 2.5-1 2.5-3s-1-3-2.5-3H10v2c0 1-1 2-2 2H5c-1 0-2 1-2 2v3c0 1 .5 2 2.5 2h3zm.5-1c-.3 0-.5-.2-.5-.5s.2-.5.5-.5.5.2.5.5-.2.5-.5.5z" fill="#3776AB"/>
-    </svg>
-  ),
-  SQL: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <ellipse cx="8" cy="4" rx="5" ry="2" fill="#336791"/>
-      <path d="M3 4v6c0 1.1 2.2 2 5 2s5-.9 5-2V4" fill="#336791" fillOpacity="0.7"/>
-      <ellipse cx="8" cy="10" rx="5" ry="2" fill="#336791"/>
-    </svg>
-  ),
-  JavaScript: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect width="16" height="16" rx="2" fill="#F7DF1E"/>
-      <path d="M9 11.5c0 1-.5 1.5-1.2 1.5-.6 0-1-.3-1.2-.8l-.8.5c.3.7 1 1.2 2 1.2 1.2 0 2-.6 2-1.7V7.5H9v4zm3.5 1.5c-1.2 0-2-.6-2.3-1.4l.8-.5c.2.4.5.7 1 .7.4 0 .7-.2.7-.5 0-.3-.3-.5-.8-.7l-.3-.1c-.9-.4-1.5-.9-1.5-1.9 0-.9.7-1.6 1.8-1.6 1 0 1.7.5 2 1.2l-.8.5c-.2-.4-.5-.6-.9-.6s-.6.2-.6.5c0 .3.2.4.7.6l.3.1c1.1.5 1.7.9 1.7 2 0 1.1-.9 1.7-2.1 1.7z" fill="#000" fillOpacity="0.8"/>
-    </svg>
-  ),
-  React: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <ellipse cx="8" cy="8" rx="6.5" ry="2.5" stroke="#61DAFB" strokeWidth="1" fill="none"/>
-      <ellipse cx="8" cy="8" rx="6.5" ry="2.5" stroke="#61DAFB" strokeWidth="1" fill="none" transform="rotate(60 8 8)"/>
-      <ellipse cx="8" cy="8" rx="6.5" ry="2.5" stroke="#61DAFB" strokeWidth="1" fill="none" transform="rotate(-60 8 8)"/>
-      <circle cx="8" cy="8" r="1.2" fill="#61DAFB"/>
-    </svg>
-  ),
-  TypeScript: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect width="16" height="16" rx="2" fill="#3178C6"/>
-      <path d="M8.5 7.5V13h-1V7.5h-2v-.8h5v.8h-2zm3.5 2.3v3.2h-.9v-.7c-.2.3-.6.5-1.1.5-.7 0-1.2-.4-1.2-1.1 0-.7.5-1 1.4-1h.9v-.1c0-.4-.2-.6-.7-.6-.4 0-.7.1-.9.4l-.5-.6c.3-.4.9-.7 1.6-.7 1 0 1.4.5 1.4 1.4zm-.9 1.4v-.8h-.8c-.4 0-.6.2-.6.5 0 .3.2.5.5.5.4 0 .7-.1.9-.2z" fill="#fff"/>
-    </svg>
-  ),
-  Bash: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect width="16" height="16" rx="2" fill="#4EAA25" fillOpacity="0.2"/>
-      <path d="M3 6l2-2 2 2-1 1-1-1-1 1-1-1zm5 4h3v1H8v-1z" fill="#4EAA25"/>
-      <path d="M2 3h12v9H2V3z" stroke="#4EAA25" strokeWidth="1" fill="none"/>
-    </svg>
-  ),
-  AWK: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect width="16" height="16" rx="2" fill="#333"/>
-      <text x="8" y="11" fontFamily="monospace" fontSize="9" fontWeight="700" fill="#fff" textAnchor="middle">awk</text>
-    </svg>
-  ),
-  "REST APIs": (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 8h4m2 0h4M8 5l3 3-3 3" stroke="#6BA539" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  ),
-  GraphQL: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 2l5.5 3.5v5L8 14l-5.5-3.5v-5L8 2z" stroke="#E10098" strokeWidth="1.2" fill="none"/>
-      <circle cx="8" cy="2" r="1" fill="#E10098"/>
-      <circle cx="13.5" cy="5.5" r="1" fill="#E10098"/>
-      <circle cx="13.5" cy="10.5" r="1" fill="#E10098"/>
-      <circle cx="8" cy="14" r="1" fill="#E10098"/>
-      <circle cx="2.5" cy="10.5" r="1" fill="#E10098"/>
-      <circle cx="2.5" cy="5.5" r="1" fill="#E10098"/>
-    </svg>
-  ),
-  Supabase: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M9 2H7v5.5L5.5 9 4 10.5V14h2v-2.5l1.5-1.5L9 8.5V2z" fill="#3ECF8E"/>
-      <path d="M10 6v6l1.5 1.5L13 14h-2v-2.5L9.5 10 8 8.5V14h2l2-2V6h-2z" fill="#3ECF8E"/>
-    </svg>
-  ),
-  "Node.js": (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 2l6 3.5v5L8 14l-6-3.5v-5L8 2z" fill="#339933"/>
-      <path d="M8 3.5l4.5 2.6v4.3L8 13l-4.5-2.6V6.1L8 3.5z" fill="#0a0a0f"/>
-    </svg>
-  ),
-  "Power BI": (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect x="3" y="8" width="2.5" height="6" rx="0.5" fill="#F2C811"/>
-      <rect x="6.5" y="5" width="2.5" height="9" rx="0.5" fill="#F2C811" fillOpacity="0.8"/>
-      <rect x="10" y="2" width="2.5" height="12" rx="0.5" fill="#F2C811" fillOpacity="0.6"/>
-    </svg>
-  ),
-  PostgreSQL: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M6 3c-1 0-1.5.5-1.5 1.5v5c0 .5.2 1 .5 1.3v2.7l1-1 1 1v-2.7c.3-.3.5-.8.5-1.3v-5C7.5 3.5 7 3 6 3z" fill="#336791"/>
-      <path d="M10 3c-1 0-1.5.5-1.5 1.5v6c0 .5.2 1 .5 1.3v1.7l1-1 1 1v-1.7c.3-.3.5-.8.5-1.3v-6C11.5 3.5 11 3 10 3z" fill="#336791"/>
-      <ellipse cx="6" cy="3.5" rx="1" ry="0.5" fill="#336791"/>
-      <ellipse cx="10" cy="3.5" rx="1" ry="0.5" fill="#336791"/>
-    </svg>
-  ),
-  Kubernetes: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 2L3 5v6l5 3 5-3V5l-5-3z" fill="#326CE5" fillOpacity="0.2"/>
-      <circle cx="8" cy="8" r="2.5" fill="#326CE5"/>
-      <path d="M8 2v3M8 11v3M3 5l2.5 1.5M10.5 9.5L13 11M3 11l2.5-1.5M10.5 6.5L13 5" stroke="#326CE5" strokeWidth="1.2"/>
-    </svg>
-  ),
-  Git: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="4" cy="8" r="1.5" fill="#F05032"/>
-      <circle cx="12" cy="8" r="1.5" fill="#F05032"/>
-      <circle cx="8" cy="4" r="1.5" fill="#F05032"/>
-      <path d="M5.3 7.5L7 5m1 0l1.7 2.5M5.5 8.5h5" stroke="#F05032" strokeWidth="1.2"/>
-    </svg>
-  ),
-  "GitHub Actions": (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 2l1 4h4l-3 3 1 4-3-2-3 2 1-4-3-3h4l1-4z" fill="#2088FF" stroke="#2088FF" strokeWidth="0.5" strokeLinejoin="round"/>
-    </svg>
-  ),
-  Docker: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect x="6" y="6" width="1.5" height="1.5" fill="#2496ED"/>
-      <rect x="8" y="6" width="1.5" height="1.5" fill="#2496ED"/>
-      <rect x="10" y="6" width="1.5" height="1.5" fill="#2496ED"/>
-      <rect x="6" y="8" width="1.5" height="1.5" fill="#2496ED"/>
-      <rect x="8" y="8" width="1.5" height="1.5" fill="#2496ED"/>
-      <rect x="4" y="8" width="1.5" height="1.5" fill="#2496ED"/>
-      <path d="M2 9.5c0 1 1 2 3 2h6c2 0 3-1 3-2" stroke="#2496ED" strokeWidth="1.2" fill="none"/>
-    </svg>
-  ),
-  Datadog: (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect width="16" height="16" rx="2" fill="#632CA6"/>
-      <path d="M5 10V5h2v5H5zm3 1V4h2v7H8zm3-2V7h2v2h-2z" fill="#fff"/>
-    </svg>
-  ),
+  Python:            <SiPython color="#3776AB" size={16} />,
+  SQL:               <FaDatabase color="#336791" size={16} />,
+  JavaScript:        <SiJavascript color="#F7DF1E" size={16} />,
+  TypeScript:        <SiTypescript color="#3178C6" size={16} />,
+  React:             <SiReact color="#61DAFB" size={16} />,
+  Bash:              <VscTerminalBash color="#4EAA25" size={16} />,
+  AWK:               <VscTerminalBash color="#888" size={16} />,
+  "REST APIs":       <FaServer color="#6BA539" size={16} />,
+  GraphQL:           <SiGraphql color="#E10098" size={16} />,
+  Supabase:          <SiSupabase color="#3ECF8E" size={16} />,
+  "Node.js":         <SiNodedotjs color="#339933" size={16} />,
+  "Power BI":        <SiPowerbi color="#F2C811" size={16} />,
+  PostgreSQL:        <SiPostgresql color="#336791" size={16} />,
+  "SQL Server":      <FaDatabase color="#CC2927" size={16} />,
+  Oracle:            <FaDatabase color="#F80000" size={16} />,
+  Kubernetes:        <SiKubernetes color="#326CE5" size={16} />,
+  Datadog:           <SiDatadog color="#632CA6" size={16} />,
+  Git:               <SiGit color="#F05032" size={16} />,
+  "GitHub Actions":  <SiGithubactions color="#2088FF" size={16} />,
+  "Azure DevOps":    <SiAzuredevops color="#0078D7" size={16} />,
+  JIRA:              <SiJira color="#0052CC" size={16} />,
+  Trello:            <SiTrello color="#0052CC" size={16} />,
+  Postman:           <SiPostman color="#FF6C37" size={16} />,
+  DBeaver:           <SiDbeaver color="#382923" size={16} />,
+  Vite:              <SiVite color="#646CFF" size={16} />,
+  Grafana:           <SiGrafana color="#F46800" size={16} />,
+  ETL:               <FaDatabase color="#00d4aa" size={16} />,
+  Metabase:          <FaDatabase color="#509EE3" size={16} />,
+  "Excel Avanzado":  <FaDatabase color="#217346" size={16} />,
+  "SSH Tunneling":   <FaServer color="#00d4aa" size={16} />,
+  "CI/CD":           <SiGithubactions color="#00d4aa" size={16} />,
 };
 
 export default function Portfolio() {
@@ -721,7 +636,7 @@ export default function Portfolio() {
             <div className="ci">
               <div className="cci">
                 <div className="cic">
-                  <span aria-hidden="true">✉</span>
+                  <MdEmail size={18} color="#00d4aa" />
                 </div>
                 <span style={{ wordBreak: "break-all" }}>
                   ademir_fernandez_hernandez03@outlook.com
@@ -729,7 +644,7 @@ export default function Portfolio() {
               </div>
               <div className="cci">
                 <div className="cic">
-                  <span aria-hidden="true">📍</span>
+                  <FaMapMarkerAlt size={18} color="#00d4aa" />
                 </div>
                 <span>Lima, Perú</span>
               </div>
@@ -740,7 +655,7 @@ export default function Portfolio() {
                   rel="noopener noreferrer"
                   className="bo"
                 >
-                  in {c.contact.linkedinLabel}
+                  <FaLinkedin size={16} style={{marginRight: 6}} /> in {c.contact.linkedinLabel}
                 </a>
                 <a
                   href="https://github.com/zZloquilloZz"
@@ -748,7 +663,7 @@ export default function Portfolio() {
                   rel="noopener noreferrer"
                   className="bo"
                 >
-                  &lt; / &gt; {c.contact.githubLabel}
+                  <FaGithub size={16} style={{marginRight: 6}} /> {c.contact.githubLabel}
                 </a>
               </div>
             </div>
