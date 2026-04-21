@@ -118,8 +118,6 @@ function Carousel({ images }) {
   );
 }
 
-const globalStyles = `@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap');*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:#0a0a0f}::selection{background:#00d4aa;color:#0a0a0f}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#1a3a5c;border-radius:3px}.ctn{max-width:1100px;margin:0 auto;padding:0 24px}.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s}.nav-s{background:rgba(10,10,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,212,170,.1)}.ni{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1100px;margin:0 auto}.nl{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:#00d4aa;cursor:pointer}.nls{display:flex;gap:28px;align-items:center}.nk{color:#8a8a9a;font-size:13px;cursor:pointer;transition:color .3s;text-transform:uppercase;letter-spacing:1.5px;font-weight:500;background:none;border:none;font-family:inherit}.nk:hover{color:#00d4aa}.lb{background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);color:#00d4aa;padding:5px 12px;border-radius:4px;font-size:12px;cursor:pointer;font-family:'Space Mono',monospace;font-weight:700}.hm{display:none;background:none;border:none;cursor:pointer}.hm span{display:block;width:22px;height:2px;background:#00d4aa;margin:5px 0;transition:all .3s}.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:800px;height:800px;background:radial-gradient(circle,rgba(0,212,170,.06) 0%,transparent 70%);pointer-events:none}.hg{font-size:16px;color:#00d4aa;font-family:'Space Mono',monospace;margin-bottom:12px;letter-spacing:2px}.hn{font-size:clamp(40px,7vw,72px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-2px}.hr{font-size:clamp(14px,2vw,18px);color:#6a6a7a;margin-bottom:8px;font-weight:300}.hl{font-size:13px;color:#4a4a5a;margin-bottom:32px;font-family:'Space Mono',monospace}.hb{display:flex;gap:16px;flex-wrap:wrap}.bp{padding:14px 32px;background:#00d4aa;color:#0a0a0f;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;border-radius:2px}.bp:hover{background:#00eabb;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,212,170,.3)}.bo{padding:14px 32px;background:transparent;color:#00d4aa;border:1px solid rgba(0,212,170,.4);font-size:14px;cursor:pointer;font-family:inherit;transition:all .3s;border-radius:2px;text-decoration:none;display:inline-flex;align-items:center}.bo:hover{border-color:#00d4aa;background:rgba(0,212,170,.05)}.st{font-size:32px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-1px}.sl{width:50px;height:3px;background:#00d4aa;margin-bottom:40px}.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}.sc{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);padding:28px;border-radius:4px;transition:all .3s}.sc:hover{border-color:rgba(0,212,170,.3);transform:translateY(-3px)}.sn{font-family:'Space Mono',monospace;font-size:12px;color:#00d4aa;margin-bottom:16px;letter-spacing:2px;text-transform:uppercase}.ss{display:flex;flex-wrap:wrap;gap:8px}.st2{padding:6px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:13px;color:#c0c0c0;border-radius:2px}.tl{position:relative;padding-left:28px}.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(0,212,170,.3),transparent)}.jb{position:relative;margin-bottom:40px}.jb::before{content:'';position:absolute;left:-32px;top:6px;width:9px;height:9px;background:#0a0a0f;border:2px solid #00d4aa;border-radius:50%}.jh{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:4px}.jt{font-size:16px;font-weight:700;color:#fff}.jd{font-family:'Space Mono',monospace;font-size:12px;color:#00d4aa;white-space:nowrap}.jc{font-size:13px;color:#6a6a7a;font-style:italic;margin-bottom:12px}.jbl{list-style:none}.jbl li{position:relative;padding-left:16px;font-size:14px;color:#a0a0b0;line-height:1.7;margin-bottom:6px}.jbl li::before{content:'›';position:absolute;left:0;color:#00d4aa;font-weight:700}.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}.pc{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);padding:24px;border-radius:4px;transition:all .4s;position:relative;overflow:hidden}.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00d4aa,transparent);opacity:0;transition:opacity .4s}.pc:hover{border-color:rgba(0,212,170,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}.pc:hover::before{opacity:1}.pn{font-size:16px;font-weight:700;color:#fff;margin-bottom:10px}.pd2{font-size:13px;color:#8a8a9a;line-height:1.6;margin-bottom:12px}.pi{font-family:'Space Mono',monospace;font-size:12px;color:#00d4aa;margin-bottom:16px;padding:8px 12px;background:rgba(0,212,170,.06);border-left:2px solid #00d4aa}.pt{display:flex;flex-wrap:wrap;gap:6px}.ptt{font-size:11px;padding:3px 10px;background:rgba(255,255,255,.04);color:#7a7a8a;border-radius:2px}.plk{display:inline-block;margin-top:12px;color:#00d4aa;font-size:13px;text-decoration:none}.eg{display:grid;gap:20px}.ec{display:flex;justify-content:space-between;align-items:flex-start;padding:24px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:4px;flex-wrap:wrap;gap:8px}.ed{font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}.es{font-size:13px;color:#6a6a7a}.edt{font-family:'Space Mono',monospace;font-size:12px;color:#00d4aa}.cg{display:grid;grid-template-columns:1fr 1fr;gap:48px}.ci{display:flex;flex-direction:column;gap:20px}.cci{display:flex;align-items:center;gap:12px;color:#a0a0b0;font-size:14px}.cic{width:40px;height:40px;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);display:flex;align-items:center;justify-content:center;border-radius:4px;color:#00d4aa;font-size:16px;flex-shrink:0}.cf{display:flex;flex-direction:column;gap:16px}.fi{padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#e0e0e0;font-size:14px;font-family:inherit;border-radius:2px;outline:none;resize:vertical}.fi:focus{border-color:rgba(0,212,170,.5)}.fi::placeholder{color:#4a4a5a}.fs{padding:12px;text-align:center;font-size:13px;border-radius:2px}.fss{background:rgba(0,212,170,.1);color:#00d4aa}.fse{background:rgba(255,80,80,.1);color:#ff5050}.ft{border-top:1px solid rgba(255,255,255,.05);padding:32px 0;text-align:center}.ftx{font-size:13px;color:#4a4a5a}.fls{display:flex;justify-content:center;gap:24px;margin-bottom:16px}.fl{color:#6a6a7a;font-size:13px;text-decoration:none;transition:color .3s}.fl:hover{color:#00d4aa}.mm{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,.98);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:768px){.nls{display:none}.hm{display:block}.cg{grid-template-columns:1fr}.hn{letter-spacing:-1px}.hb{flex-direction:column}.bp,.bo{text-align:center;justify-content:center}.jh{flex-direction:column}.pg{grid-template-columns:1fr}.ec{flex-direction:column}.pw{grid-template-columns:1fr!important}}`;
-
 function useInView(th = INTERSECTION_THRESHOLD) {
   const ref = useRef(null);
   const [v, setV] = useState(false);
@@ -252,8 +250,6 @@ export default function Portfolio() {
         overflowX: "hidden",
       }}
     >
-      <style>{globalStyles}</style>
-
       <nav className={`nav ${scrolled ? "nav-s" : ""}`}>
         <div className="ni">
           <div className="nl" onClick={() => go("hero")}>
@@ -330,23 +326,35 @@ export default function Portfolio() {
             animation: "fadeIn 1s ease",
           }}
         >
-          <div className="hg">{c.hero.greeting}</div>
-          <h1 className="hn">{c.hero.name}</h1>
-          <p className="hr">{c.hero.role}</p>
-          <p className="hl">{c.hero.location}</p>
-          <div className="hb">
-            <button className="bp" onClick={() => go("contact")}>
-              {c.hero.cta1}
-            </button>
-            <a
-              className="bo"
-              href={`/porfolio_AdemirF/cv/CV_Ademir_Fernandez_${lang === "es" ? "ES" : "EN"}.pdf`}
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {c.hero.cta2}
-            </a>
+          <div className="hero-grid">
+            <div className="hero-content">
+              <div className="hg">{c.hero.greeting}</div>
+              <h1 className="hn">{c.hero.name}</h1>
+              <p className="hr">{c.hero.role}</p>
+              <div className="hero-badge">{c.hero.availability}</div>
+              <p className="hl">{c.hero.location}</p>
+              <div className="hb">
+                <button className="bp" onClick={() => go("contact")}>
+                  {c.hero.cta1}
+                </button>
+                <a
+                  className="bo"
+                  href={`/porfolio_AdemirF/cv/CV_Ademir_Fernandez_${lang === "es" ? "ES" : "EN"}.pdf`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {c.hero.cta2}
+                </a>
+              </div>
+            </div>
+            <div className="hero-image">
+              <img
+                src="/images/profile.jpg"
+                alt="Ademir Fernández"
+                className="profile-img"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -377,11 +385,26 @@ export default function Portfolio() {
               <div key={i} className="sc">
                 <div className="sn">{cat.name}</div>
                 <div className="ss">
-                  {cat.items.map((it, j) => (
-                    <span key={j} className="st2">
-                      {it}
-                    </span>
-                  ))}
+                  {cat.items.map((it, j) => {
+                    const isCore = ["Python", "SQL", "Power BI"].includes(it);
+                    return (
+                      <span key={j} className="st2">
+                        {it}
+                        {isCore && (
+                          <span
+                            style={{
+                              marginLeft: 6,
+                              color: "#00d4aa",
+                              fontSize: 11,
+                              fontWeight: 700,
+                            }}
+                          >
+                            ★ Core
+                          </span>
+                        )}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}
@@ -537,34 +560,26 @@ export default function Portfolio() {
               </div>
               <div className="cci">
                 <div className="cic">
-                  <span aria-hidden="true">📱</span>
-                </div>
-                <span>+51 900 569 010</span>
-              </div>
-              <div className="cci">
-                <div className="cic">
                   <span aria-hidden="true">📍</span>
                 </div>
                 <span>Lima, Perú</span>
               </div>
-              <div style={{ display: "flex", gap: 12, marginTop: 12 }}>
+              <div style={{ display: "flex", gap: 12, marginTop: 12, flexWrap: "wrap" }}>
                 <a
                   href="https://www.linkedin.com/in/ademir-fernandez-hernandez-1ab502271"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fl"
-                  style={{ color: "#00d4aa" }}
+                  className="bo"
                 >
-                  LinkedIn
+                  in {c.contact.linkedinLabel}
                 </a>
                 <a
                   href="https://github.com/zZloquilloZz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="fl"
-                  style={{ color: "#00d4aa" }}
+                  className="bo"
                 >
-                  GitHub
+                  &lt; / &gt; {c.contact.githubLabel}
                 </a>
               </div>
             </div>

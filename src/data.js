@@ -39,6 +39,7 @@ export const translations = {
       greeting: "Hola, soy",
       name: "Ademir Fernández",
       role: "Data Analyst | Backend Developer | Automation Engineer",
+      availability: "● Disponible para nuevas oportunidades",
       cta1: "Contáctame",
       cta2: "Descargar CV",
       location: "Lima, Perú",
@@ -251,6 +252,8 @@ export const translations = {
       sending: "Enviando...",
       sent: "¡Mensaje enviado!",
       error: "Error al enviar.",
+      linkedinLabel: "LinkedIn",
+      githubLabel: "GitHub",
     },
     footer: {
       rights: "Todos los derechos reservados.",
@@ -271,6 +274,7 @@ export const translations = {
       greeting: "Hi, I'm",
       name: "Ademir Fernández",
       role: "Data Analyst | Backend Developer | Automation Engineer",
+      availability: "● Open to new opportunities",
       cta1: "Contact Me",
       cta2: "Download CV",
       location: "Lima, Peru",
@@ -482,6 +486,8 @@ export const translations = {
       sending: "Sending...",
       sent: "Message sent!",
       error: "Error sending.",
+      linkedinLabel: "LinkedIn",
+      githubLabel: "GitHub",
     },
     footer: {
       rights: "All rights reserved.",
