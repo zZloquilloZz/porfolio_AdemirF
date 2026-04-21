@@ -1,13 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { translations, camImages, ppImages, utpImages } from "./data.js";
-import {
-  SiPython, SiPostgresql, SiJavascript, SiTypescript,
-  SiReact, SiGraphql, SiNodedotjs,
-  SiKubernetes, SiGit, SiDocker,
-  SiJira, SiPostman, SiTrello, SiGrafana
-} from "react-icons/si";
-import { FaDatabase, FaServer, FaLinkedin, FaGithub, FaMapMarkerAlt, FaChartBar, FaCloud } from "react-icons/fa";
-import { VscTerminalBash } from "react-icons/vsc";
+import { FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 // ============================================
@@ -211,38 +204,37 @@ const EDUCATION_ICONS = {
 // ============================================
 // SKILL ICONS
 // ============================================
+const devicon = (name, color="original") =>
+  <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${color}.svg`}
+       width={16} height={16} style={{display:"block"}} alt={name} />;
+
 const SKILL_ICONS = {
-  Python:            <SiPython color="#3776AB" size={16} />,
-  SQL:               <FaDatabase color="#336791" size={16} />,
-  JavaScript:        <SiJavascript color="#F7DF1E" size={16} />,
-  TypeScript:        <SiTypescript color="#3178C6" size={16} />,
-  React:             <SiReact color="#61DAFB" size={16} />,
-  Bash:              <VscTerminalBash color="#4EAA25" size={16} />,
-  AWK:               <VscTerminalBash color="#888" size={16} />,
-  "REST APIs":       <FaServer color="#6BA539" size={16} />,
-  GraphQL:           <SiGraphql color="#E10098" size={16} />,
-  Supabase:          <FaDatabase color="#3ECF8E" size={16} />,
-  "Node.js":         <SiNodedotjs color="#339933" size={16} />,
-  "Power BI":        <FaChartBar color="#F2C811" size={16} />,
-  PostgreSQL:        <SiPostgresql color="#336791" size={16} />,
-  "SQL Server":      <FaDatabase color="#CC2927" size={16} />,
-  Oracle:            <FaDatabase color="#F80000" size={16} />,
-  Kubernetes:        <SiKubernetes color="#326CE5" size={16} />,
-  Datadog:           <FaServer color="#632CA6" size={16} />,
-  Git:               <SiGit color="#F05032" size={16} />,
-  "GitHub Actions":  <FaCloud color="#2088FF" size={16} />,
-  "Azure DevOps":    <FaCloud color="#0078D7" size={16} />,
-  JIRA:              <SiJira color="#0052CC" size={16} />,
-  Trello:            <SiTrello color="#0052CC" size={16} />,
-  Postman:           <SiPostman color="#FF6C37" size={16} />,
-  DBeaver:           <FaDatabase color="#382923" size={16} />,
-  Vite:              <FaServer color="#646CFF" size={16} />,
-  Grafana:           <SiGrafana color="#F46800" size={16} />,
-  ETL:               <FaDatabase color="#00d4aa" size={16} />,
-  Metabase:          <FaDatabase color="#509EE3" size={16} />,
-  "Excel Avanzado":  <FaDatabase color="#217346" size={16} />,
-  "SSH Tunneling":   <FaServer color="#00d4aa" size={16} />,
-  "CI/CD":           <FaCloud color="#00d4aa" size={16} />,
+  Python:           devicon("python"),
+  SQL:              devicon("postgresql"),
+  JavaScript:       devicon("javascript"),
+  TypeScript:       devicon("typescript"),
+  React:            devicon("react"),
+  Bash:             devicon("bash"),
+  AWK:              devicon("bash", "plain"),
+  "REST APIs":      devicon("fastapi"),
+  GraphQL:          devicon("graphql", "plain"),
+  Supabase:         devicon("supabase", "original"),
+  "Node.js":        devicon("nodejs", "plain"),
+  "Power BI":       devicon("azuresqldatabase","original"),
+  PostgreSQL:       devicon("postgresql"),
+  "SQL Server":     devicon("microsoftsqlserver", "plain"),
+  Oracle:           devicon("oracle"),
+  Kubernetes:       devicon("kubernetes", "plain"),
+  Datadog:          devicon("datadog"),
+  Git:              devicon("git"),
+  "GitHub Actions": devicon("githubactions", "plain"),
+  "Azure DevOps":   devicon("azuredevops", "plain"),
+  JIRA:             devicon("jira"),
+  Trello:           devicon("trello"),
+  Postman:          devicon("postman", "plain"),
+  DBeaver:          devicon("dbeaver", "plain"),
+  Vite:             devicon("vitejs", "plain"),
+  Grafana:          devicon("grafana", "plain"),
 };
 
 export default function Portfolio() {
