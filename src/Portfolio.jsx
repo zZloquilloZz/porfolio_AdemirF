@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { translations, camImages, ppImages } from "./data.js";
+import { translations, camImages, ppImages, utpImages } from "./data.js";
 
 // ============================================
 // CONFIGURACIÓN / CONSTANTES
@@ -25,7 +25,7 @@ const FORM_ERROR_TIMEOUT_MS = 3000; // Duración del mensaje de error del formul
 const INTERSECTION_THRESHOLD = 0.1; // Threshold para IntersectionObserver (0-1)
 
 // Mapeo de nombres de imágenes a arrays reales
-const imageMap = { camImages, ppImages };
+const imageMap = { camImages, ppImages, utpImages };
 
 function Carousel({ images }) {
   const [idx, setIdx] = useState(0);

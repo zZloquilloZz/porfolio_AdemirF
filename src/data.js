@@ -14,6 +14,13 @@ export const ppImages = [
   { src: "images/pp_presupuesto.png", alt: "Presupuesto" },
 ];
 
+export const utpImages = [
+  { src: "images/utp_dashboard.png", alt: "Dashboard" },
+  { src: "images/utp_cursos.png", alt: "Mis Cursos" },
+  { src: "images/utp_historial.png", alt: "Historial" },
+  { src: "images/utp_calculadora.png", alt: "Calculadora" },
+];
+
 // ============================================
 // TRADUCCIONES (ES / EN)
 // ============================================
@@ -146,6 +153,14 @@ export const translations = {
             "TMF622",
           ],
           images: "camImages",
+        },
+        {
+          name: "TrackGrade",
+          desc: "Aplicación web de seguimiento académico universitario. Permite importar el reporte PDF oficial, visualizar el avance por ciclos y créditos, gestionar el estado de cada curso (Pendiente → En curso → Aprobado/Desaprobado) y simular notas con calculadora de mínimo recomendado en tiempo real.",
+          impact: "Aplicación en producción con login Google, multi-usuario y datos en tiempo real",
+          tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "Google OAuth", "PDF Parser"],
+          link: "https://seguimiento-notas.vercel.app",
+          images: "utpImages",
         },
         {
           name: "Presupuesto Personal",
@@ -370,6 +385,14 @@ export const translations = {
             "TMF622",
           ],
           images: "camImages",
+        },
+        {
+          name: "TrackGrade",
+          desc: "University academic tracking web app. Allows importing the official PDF report, visualizing progress by cycles and credits, managing course status (Pending → In Progress → Approved/Failed) and simulating grades with a real-time minimum score calculator.",
+          impact: "Live app with Google login, multi-user support and real-time data",
+          tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "Google OAuth", "PDF Parser"],
+          link: "https://seguimiento-notas.vercel.app",
+          images: "utpImages",
         },
         {
           name: "Personal Budget App",
