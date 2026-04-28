@@ -430,7 +430,7 @@ export default function Portfolio() {
             </div>
             <div className="hero-image">
               <img
-                src="/images/profile.jpg"
+                src="images/profile.jpg"
                 alt="Ademir Fernández"
                 className="profile-img"
               />
