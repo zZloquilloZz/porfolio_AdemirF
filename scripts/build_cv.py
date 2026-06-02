@@ -21,7 +21,9 @@ from reportlab.lib.enums import TA_JUSTIFY
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, HRFlowable, ListFlowable, ListItem,
+    Table, TableStyle,
 )
+from reportlab.lib.enums import TA_RIGHT
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
@@ -72,9 +74,29 @@ def styles():
     bullet = ParagraphStyle("bullet", fontName=FONT, fontSize=8.5,
                             leading=10.8, textColor=black, alignment=TA_JUSTIFY)
     skill = ParagraphStyle("skill", fontName=FONT, fontSize=8.6,
-                           leading=11.4, textColor=black)
+                           leading=11.7, textColor=black, spaceAfter=1)
+    company = ParagraphStyle("company", fontName=FONT_I, fontSize=8.6,
+                             leading=10.5, textColor=MUTED, spaceBefore=0, spaceAfter=2)
+    dateR = ParagraphStyle("dateR", fontName=FONT, fontSize=8.4,
+                           leading=10.5, textColor=ACCENT, alignment=TA_RIGHT)
+    skillLabel = ParagraphStyle("skillLabel", fontName=FONT_B, fontSize=8.6,
+                                leading=11.7, textColor=black)
     return dict(name=name, role=role, contact=contact, h2=h2, body=body,
-                jobtitle=jobtitle, meta=meta, bullet=bullet, skill=skill)
+                jobtitle=jobtitle, meta=meta, bullet=bullet, skill=skill,
+                company=company, dateR=dateR, skillLabel=skillLabel)
+
+
+def header_row(left_para, right_text, S, lw=128 * mm, rw=52 * mm):
+    """Fila cargo/fecha: izquierda libre, fecha a la derecha. Sin bordes (ATS la lee)."""
+    t = Table([[left_para, Paragraph(right_text, S["dateR"])]], colWidths=[lw, rw])
+    t.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ]))
+    return t
 
 
 def rule():
@@ -96,11 +118,10 @@ def bullets(items, S):
 
 
 def job(j, S, out):
-    title_line = f'<b>{j["title"]}</b>&nbsp;&nbsp;—&nbsp;&nbsp;{j["company"]}'
-    out.append(Paragraph(f'{title_line}', S["jobtitle"]))
-    out.append(Paragraph(j["date"], S["meta"]))
+    out.append(header_row(Paragraph(j["title"], S["jobtitle"]), j["date"], S))
+    out.append(Paragraph(j["company"], S["company"]))
     out.append(bullets(j["bullets"], S))
-    out.append(Spacer(1, 2))
+    out.append(Spacer(1, 6))
 
 
 def project(p, S, out):
@@ -319,7 +340,8 @@ def build(lang):
 
     el += section(d["sec"]["edu"], S)
     for deg, school, date in d["edu"]:
-        el.append(Paragraph(f'<b>{deg}</b> — {school} <font color="#444444">({date})</font>', S["skill"]))
+        el.append(header_row(Paragraph(f'<b>{deg}</b> — {school}', S["skill"]), date, S))
+        el.append(Spacer(1, 2))
 
     doc.build(el)
     print("OK:", path)
