@@ -110,28 +110,17 @@ function Carousel({ images }) {
         style={{
           position: "relative",
           width: "100%",
+          height: 360,
           marginBottom: 16,
-          borderRadius: 4,
+          borderRadius: 6,
           overflow: "hidden",
-          background: "rgba(0,0,0,0.35)",
-          aspectRatio: "16/9",
-          height: 0,
-          paddingBottom: "56.25%",
+          background: "#0d0d14",
+          border: "1px solid rgba(255,255,255,0.06)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        {/* Fondo borroso de la misma imagen: rellena la caja sin recortar el contenido */}
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url(${images[idx].src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(20px) brightness(0.45)",
-            transform: "scale(1.2)",
-          }}
-        />
         <img
           src={images[idx].src}
           alt={images[idx].alt}
@@ -139,14 +128,13 @@ function Carousel({ images }) {
           onClick={() => setOpen(true)}
           title="Click para ampliar"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "auto",
+            height: "auto",
             objectFit: "contain",
-            borderRadius: 4,
             cursor: "zoom-in",
+            display: "block",
           }}
         />
         {len > 1 && (
