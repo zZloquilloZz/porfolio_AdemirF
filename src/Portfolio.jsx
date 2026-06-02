@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, cloneElement } from "react";
 import { createPortal } from "react-dom";
-import { translations, camImages, ppImages, utpImages, ksImages } from "./data.js";
+import { translations, ppImages, utpImages } from "./data.js";
 import {
   FaLinkedin,
   FaGithub,
@@ -63,7 +63,7 @@ const FORM_ERROR_TIMEOUT_MS = 3000; // Duración del mensaje de error del formul
 const INTERSECTION_THRESHOLD = 0.1; // Threshold para IntersectionObserver (0-1)
 
 // Mapeo de nombres de imágenes a arrays reales
-const imageMap = { camImages, ppImages, utpImages, ksImages };
+const imageMap = { ppImages, utpImages };
 
 function Carousel({ images }) {
   const [idx, setIdx] = useState(0);
@@ -733,6 +733,7 @@ export default function Portfolio() {
                             )}
                           </div>
                         )}
+                        {p.note && <div className="pnote">{p.note}</div>}
                       </div>
                     </div>
                   </div>
@@ -783,6 +784,7 @@ export default function Portfolio() {
                       )}
                     </div>
                   )}
+                  {p.note && <div className="pnote">{p.note}</div>}
                 </div>
               ))}
           </div>

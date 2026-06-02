@@ -2,12 +2,6 @@
 // CONFIGURACIÓN DE IMÁGENES
 // ============================================
 
-export const camImages = [
-  { src: "images/cam_terminal.png", alt: "Terminal" },
-  { src: "images/cam_report.png", alt: "Report" },
-  { src: "images/cam_tree.png", alt: "Tree" },
-];
-
 export const ppImages = [
   { src: "images/pp_dashboard.png", alt: "Dashboard" },
   { src: "images/pp_registro.png", alt: "Registro" },
@@ -19,12 +13,6 @@ export const utpImages = [
   { src: "images/utp_cursos.png", alt: "Mis Cursos" },
   { src: "images/utp_historial.png", alt: "Historial" },
   { src: "images/utp_calculadora.png", alt: "Calculadora" },
-];
-
-export const ksImages = [
-  { src: "images/ks_perfil.jpeg", alt: "Selección de perfil" },
-  { src: "images/ks_cuaderno.jpeg", alt: "Cuaderno de hoy" },
-  { src: "images/ks_dashboard.jpeg", alt: "Dashboard del niño" },
 ];
 
 // ============================================
@@ -165,7 +153,7 @@ export const translations = {
             "PostgreSQL",
             "pytest",
           ],
-          images: "camImages",
+          note: "Sin demo pública — herramienta interna en producción para PangeaCO.",
         },
         {
           name: "GradeFlow",
@@ -211,7 +199,6 @@ export const translations = {
             "Vercel",
           ],
           link: "https://kidspark-steel.vercel.app",
-          images: "ksImages",
         },
       ],
     },
@@ -384,7 +371,7 @@ export const translations = {
             "PostgreSQL",
             "pytest",
           ],
-          images: "camImages",
+          note: "No public demo — internal tool in production for PangeaCO.",
         },
         {
           name: "GradeFlow",
@@ -430,7 +417,6 @@ export const translations = {
             "Vercel",
           ],
           link: "https://kidspark-steel.vercel.app",
-          images: "ksImages",
         },
       ],
     },
