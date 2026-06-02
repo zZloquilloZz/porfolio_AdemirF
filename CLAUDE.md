@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Ademir Fernández — a bilingual (ES/EN) single-page React application built with Vite. Deployed to GitHub Pages at `/ademir-portfolio/` via GitHub Actions on push to `main`.
+Personal portfolio website for Ademir Fernández — a bilingual (ES/EN) single-page React application built with Vite. Deployed to GitHub Pages at `/porfolio_AdemirF/` via GitHub Actions on push to `main`.
 
 ## Commands
 
@@ -16,11 +16,13 @@ No linter, formatter, or test runner is configured.
 
 ## Architecture
 
-This is a minimal single-file React app with no routing, no state management library, and no CSS framework.
+This is a minimal React app with no routing, no state management library, and no CSS framework. Split across a few files:
 
-- **`src/Portfolio.jsx`** — The entire application lives here: all components, all content/translations, and all styles (inline + a single `<style>` block with CSS classes). The bilingual content is defined in a large `t` object (`t.es` / `t.en`) at the top of the component scope.
-- **`src/main.jsx`** — React entry point, renders `<Portfolio />`.
-- **`vite.config.js`** — Sets `base: "/ademir-portfolio/"` for GitHub Pages path prefix.
+- **`src/Portfolio.jsx`** — All UI components, the icon maps (devicon helpers, education icons), and the contact form logic. Reads content from `data.js`.
+- **`src/data.js`** — All bilingual content/translations (the `translations` object, `translations.es` / `translations.en`) plus the carousel image arrays (`camImages`, `ppImages`, `utpImages`). **Edit project/experience/education copy here, not in `Portfolio.jsx`.**
+- **`src/styles.css`** — Global stylesheet (CSS classes), imported from `main.jsx`.
+- **`src/main.jsx`** — React entry point, imports `styles.css` and renders `<Portfolio />`.
+- **`vite.config.js`** — Sets `base: "/porfolio_AdemirF/"` for the GitHub Pages path prefix.
 
 Key internal components (all in `Portfolio.jsx`):
 - `Carousel` — Image carousel for featured projects

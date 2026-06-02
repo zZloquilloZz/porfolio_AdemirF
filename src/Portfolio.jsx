@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { translations, camImages, ppImages, utpImages } from "./data.js";
+import { translations, camImages, ppImages, utpImages, ksImages } from "./data.js";
 import { FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
@@ -27,7 +27,7 @@ const FORM_ERROR_TIMEOUT_MS = 3000; // Duración del mensaje de error del formul
 const INTERSECTION_THRESHOLD = 0.1; // Threshold para IntersectionObserver (0-1)
 
 // Mapeo de nombres de imágenes a arrays reales
-const imageMap = { camImages, ppImages, utpImages };
+const imageMap = { camImages, ppImages, utpImages, ksImages };
 
 function Carousel({ images }) {
   const [idx, setIdx] = useState(0);
@@ -546,15 +546,29 @@ export default function Portfolio() {
                             </span>
                           ))}
                         </div>
-                        {p.link && (
-                          <a
-                            href={p.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="plk"
-                          >
-                            {c.viewProject} →
-                          </a>
+                        {(p.link || p.repo) && (
+                          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                            {p.link && (
+                              <a
+                                href={p.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="plk"
+                              >
+                                {c.viewProject} →
+                              </a>
+                            )}
+                            {p.repo && (
+                              <a
+                                href={p.repo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="plk"
+                              >
+                                {c.viewCode} →
+                              </a>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -578,15 +592,29 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
-                  {p.link && (
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="plk"
-                    >
-                      {c.viewProject} →
-                    </a>
+                  {(p.link || p.repo) && (
+                    <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                      {p.link && (
+                        <a
+                          href={p.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="plk"
+                        >
+                          {c.viewProject} →
+                        </a>
+                      )}
+                      {p.repo && (
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="plk"
+                        >
+                          {c.viewCode} →
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
               ))}

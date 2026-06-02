@@ -21,6 +21,12 @@ export const utpImages = [
   { src: "images/utp_calculadora.png", alt: "Calculadora" },
 ];
 
+export const ksImages = [
+  { src: "images/ks_perfil.jpeg", alt: "Selección de perfil" },
+  { src: "images/ks_cuaderno.jpeg", alt: "Cuaderno de hoy" },
+  { src: "images/ks_dashboard.jpeg", alt: "Dashboard del niño" },
+];
+
 // ============================================
 // TRADUCCIONES (ES / EN)
 // ============================================
@@ -156,11 +162,12 @@ export const translations = {
           images: "camImages",
         },
         {
-          name: "TrackGrade",
+          name: "GradeFlow",
           desc: "Aplicación web de seguimiento académico universitario. Permite importar el reporte PDF oficial, visualizar el avance por ciclos y créditos, gestionar el estado de cada curso (Pendiente → En curso → Aprobado/Desaprobado) y simular notas con calculadora de mínimo recomendado en tiempo real.",
           impact: "Aplicación en producción con login Google, multi-usuario y datos en tiempo real",
           tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "Google OAuth", "PDF Parser"],
           link: "https://seguimiento-notas.vercel.app",
+          repo: "https://github.com/zZloquilloZz/Seguimiento_Notas",
           images: "utpImages",
         },
         {
@@ -178,7 +185,27 @@ export const translations = {
             "CSS Variables",
           ],
           link: "https://zzloquillozz.github.io/presupuesto-personal/",
+          repo: "https://github.com/zZloquilloZz/presupuesto-personal",
           images: "ppImages",
+        },
+        {
+          name: "KidSpark",
+          desc: "Plataforma educativa con IA para niños de primaria (currículo MINEDU). Los padres suben fotos del cuaderno y Claude (visión) genera ejercicios adaptativos por materia. Incluye motor de aprendizaje con niveles por curso, sistema de estrellas y repetición espaciada (SM-2), tres roles (admin, padre, niño con acceso por PIN), control de costos de IA con límites configurables, y endurecimiento de seguridad de producción (rate-limit con Redis, CSP, retención de datos del menor según Ley 29733). Desarrollada con Next.js 16, Prisma + PostgreSQL y desplegada en Vercel.",
+          impact: "Aplicación en producción con IA adaptativa, control de costos y seguridad de nivel producción",
+          tech: [
+            "Next.js 16",
+            "TypeScript",
+            "Prisma",
+            "PostgreSQL",
+            "Anthropic (Claude)",
+            "NextAuth v5",
+            "Upstash Redis",
+            "Vitest",
+            "Playwright",
+            "Vercel",
+          ],
+          link: "https://kidspark-steel.vercel.app",
+          images: "ksImages",
         },
         {
           name: "Consulta Unificada ISP / OSP / BSS Inventory",
@@ -259,6 +286,7 @@ export const translations = {
       rights: "Todos los derechos reservados.",
     },
     viewProject: "Ver proyecto",
+    viewCode: "Ver código",
   },
 
   en: {
@@ -391,11 +419,12 @@ export const translations = {
           images: "camImages",
         },
         {
-          name: "TrackGrade",
+          name: "GradeFlow",
           desc: "University academic tracking web app. Allows importing the official PDF report, visualizing progress by cycles and credits, managing course status (Pending → In Progress → Approved/Failed) and simulating grades with a real-time minimum score calculator.",
           impact: "Live app with Google login, multi-user support and real-time data",
           tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "Zustand", "Google OAuth", "PDF Parser"],
           link: "https://seguimiento-notas.vercel.app",
+          repo: "https://github.com/zZloquilloZz/Seguimiento_Notas",
           images: "utpImages",
         },
         {
@@ -413,7 +442,27 @@ export const translations = {
             "CSS Variables",
           ],
           link: "https://zzloquillozz.github.io/presupuesto-personal/",
+          repo: "https://github.com/zZloquilloZz/presupuesto-personal",
           images: "ppImages",
+        },
+        {
+          name: "KidSpark",
+          desc: "AI-powered educational platform for primary-school kids (Peru's MINEDU curriculum). Parents upload notebook photos and Claude (vision) generates adaptive exercises per subject. Features a learning engine with per-subject levels, a star system and spaced repetition (SM-2), three roles (admin, parent, child via PIN), AI cost control with configurable limits, and production-grade security hardening (Redis rate-limiting, CSP, minor-data retention per Peru's Law 29733). Built with Next.js 16, Prisma + PostgreSQL and deployed on Vercel.",
+          impact: "Production app with adaptive AI, cost control and production-grade security",
+          tech: [
+            "Next.js 16",
+            "TypeScript",
+            "Prisma",
+            "PostgreSQL",
+            "Anthropic (Claude)",
+            "NextAuth v5",
+            "Upstash Redis",
+            "Vitest",
+            "Playwright",
+            "Vercel",
+          ],
+          link: "https://kidspark-steel.vercel.app",
+          images: "ksImages",
         },
         {
           name: "Unified ISP / OSP / BSS Inventory Query",
@@ -493,5 +542,6 @@ export const translations = {
       rights: "All rights reserved.",
     },
     viewProject: "View project",
+    viewCode: "View code",
   },
 };
