@@ -1,7 +1,42 @@
 import { useState, useEffect, useRef } from "react";
 import { translations, camImages, ppImages, utpImages, ksImages } from "./data.js";
-import { FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaMapMarkerAlt,
+  FaDatabase,
+  FaTerminal,
+  FaFileExcel,
+  FaInfinity,
+  FaExchangeAlt,
+  FaChartBar,
+} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import {
+  SiPython,
+  SiPostgresql,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiGnubash,
+  SiGnu,
+  SiGraphql,
+  SiSupabase,
+  SiNodedotjs,
+  SiKubernetes,
+  SiDatadog,
+  SiGit,
+  SiGithubactions,
+  SiPostman,
+  SiDbeaver,
+  SiVite,
+  SiGrafana,
+  SiJira,
+  SiTrello,
+  SiMetabase,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { VscAzureDevops } from "react-icons/vsc";
 
 // ============================================
 // CONFIGURACIÓN / CONSTANTES
@@ -202,39 +237,51 @@ const EDUCATION_ICONS = {
 };
 
 // ============================================
-// SKILL ICONS
+// SKILL ICONS — react-icons (offline, sin imágenes rotas)
+// Marcas en su color real; conceptos genéricos en el teal del sitio.
 // ============================================
-const devicon = (name, color="original") =>
-  <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${color}.svg`}
-       width={16} height={16} style={{display:"block"}} alt={name} />;
+const TEAL = "#00d4aa";
+const ico = (Cmp, color = TEAL) => (
+  <Cmp size={16} color={color} style={{ display: "block", flexShrink: 0 }} />
+);
 
 const SKILL_ICONS = {
-  Python:           devicon("python"),
-  SQL:              devicon("postgresql"),
-  JavaScript:       devicon("javascript"),
-  TypeScript:       devicon("typescript"),
-  React:            devicon("react"),
-  Bash:             devicon("bash"),
-  AWK:              devicon("bash", "plain"),
-  "REST APIs":      devicon("fastapi"),
-  GraphQL:          devicon("graphql", "plain"),
-  Supabase:         devicon("supabase", "original"),
-  "Node.js":        devicon("nodejs", "plain"),
-  "Power BI":       devicon("azuresqldatabase","original"),
-  PostgreSQL:       devicon("postgresql"),
-  "SQL Server":     devicon("microsoftsqlserver", "plain"),
-  Oracle:           devicon("oracle"),
-  Kubernetes:       devicon("kubernetes", "plain"),
-  Datadog:          devicon("datadog"),
-  Git:              devicon("git"),
-  "GitHub Actions": devicon("githubactions", "plain"),
-  "Azure DevOps":   devicon("azuredevops", "plain"),
-  JIRA:             devicon("jira"),
-  Trello:           devicon("trello"),
-  Postman:          devicon("postman", "plain"),
-  DBeaver:          devicon("dbeaver", "plain"),
-  Vite:             devicon("vitejs", "plain"),
-  Grafana:          devicon("grafana", "plain"),
+  // Lenguajes
+  Python:           ico(SiPython, "#4B8BBE"),
+  SQL:              ico(FaDatabase),
+  JavaScript:       ico(SiJavascript, "#F7DF1E"),
+  TypeScript:       ico(SiTypescript, "#3178C6"),
+  React:            ico(SiReact, "#61DAFB"),
+  Bash:             ico(SiGnubash, "#4EAA25"),
+  AWK:              ico(SiGnu, "#A42E2B"),
+  // Backend & APIs
+  "REST APIs":      ico(TbApi),
+  GraphQL:          ico(SiGraphql, "#E10098"),
+  Supabase:         ico(SiSupabase, "#3FCF8E"),
+  "Node.js":        ico(SiNodedotjs, "#5FA04E"),
+  "SSH Tunneling":  ico(FaTerminal),
+  // Datos & BI
+  "Power BI":       ico(FaChartBar, "#F2C811"),
+  PostgreSQL:       ico(SiPostgresql, "#4169E1"),
+  "SQL Server":     ico(FaDatabase, "#CC2927"),
+  Oracle:           ico(FaDatabase, "#F80000"),
+  "Excel Avanzado": ico(FaFileExcel, "#217346"),
+  Metabase:         ico(SiMetabase, "#509EE3"),
+  Grafana:          ico(SiGrafana, "#F46800"),
+  ETL:              ico(FaExchangeAlt),
+  // Infraestructura
+  Kubernetes:       ico(SiKubernetes, "#326CE5"),
+  Datadog:          ico(SiDatadog, "#7C3AED"),
+  Git:              ico(SiGit, "#F05032"),
+  "GitHub Actions": ico(SiGithubactions, "#2088FF"),
+  "CI/CD":          ico(FaInfinity),
+  // Herramientas
+  "Azure DevOps":   ico(VscAzureDevops, "#0078D7"),
+  JIRA:             ico(SiJira, "#2684FF"),
+  Trello:           ico(SiTrello, "#0052CC"),
+  Postman:          ico(SiPostman, "#FF6C37"),
+  DBeaver:          ico(SiDbeaver, TEAL),
+  Vite:             ico(SiVite, "#646CFF"),
 };
 
 export default function Portfolio() {
