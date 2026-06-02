@@ -7,6 +7,11 @@ export const hubImages = [
   { src: "images/hub_isp.png", alt: "Ejecución en vivo de una herramienta" },
 ];
 
+export const ksImages = [
+  { src: "images/ks_practica.jpeg", alt: "Pantalla de práctica del niño" },
+  { src: "images/ks_admin.jpeg", alt: "Dashboard de administración" },
+];
+
 export const ppImages = [
   { src: "images/pp_dashboard.png", alt: "Dashboard" },
   { src: "images/pp_registro.png", alt: "Registro" },
@@ -205,6 +210,7 @@ export const translations = {
             "Vercel",
           ],
           link: "https://kidspark-steel.vercel.app",
+          images: "ksImages",
         },
       ],
     },
@@ -424,6 +430,7 @@ export const translations = {
             "Vercel",
           ],
           link: "https://kidspark-steel.vercel.app",
+          images: "ksImages",
         },
       ],
     },
