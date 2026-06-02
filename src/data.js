@@ -2,6 +2,11 @@
 // CONFIGURACIÓN DE IMÁGENES
 // ============================================
 
+export const hubImages = [
+  { src: "images/hub_panel.png", alt: "Panel de operaciones del Hub" },
+  { src: "images/hub_isp.png", alt: "Ejecución en vivo de una herramienta" },
+];
+
 export const ppImages = [
   { src: "images/pp_dashboard.png", alt: "Dashboard" },
   { src: "images/pp_registro.png", alt: "Registro" },
@@ -154,6 +159,7 @@ export const translations = {
             "pytest",
           ],
           note: "Sin demo pública — herramienta interna en producción para PangeaCO.",
+          images: "hubImages",
         },
         {
           name: "GradeFlow",
@@ -372,6 +378,7 @@ export const translations = {
             "pytest",
           ],
           note: "No public demo — internal tool in production for PangeaCO.",
+          images: "hubImages",
         },
         {
           name: "GradeFlow",
