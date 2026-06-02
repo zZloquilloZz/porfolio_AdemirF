@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, cloneElement } from "react";
+import { createPortal } from "react-dom";
 import { translations, camImages, ppImages, utpImages, ksImages } from "./data.js";
 import {
   FaLinkedin,
@@ -171,7 +172,7 @@ function Carousel({ images }) {
         )}
       </div>
 
-      {open && (
+      {open && createPortal(
         <div
           role="dialog"
           aria-modal="true"
@@ -258,7 +259,8 @@ function Carousel({ images }) {
               </div>
             </>
           )}
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
