@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, cloneElement } from "react";
 import { translations, camImages, ppImages, utpImages, ksImages } from "./data.js";
 import {
   FaLinkedin,
@@ -458,6 +458,7 @@ export default function Portfolio() {
               <div className="hg">{c.hero.greeting}</div>
               <h1 className="hn">{c.hero.name}</h1>
               <p className="hr">{c.hero.role}</p>
+              <p className="hp">{c.hero.pitch}</p>
               <div className="hero-badge">{c.hero.availability}</div>
               <p className="hl">{c.hero.location}</p>
               <div className="hb">
@@ -587,11 +588,15 @@ export default function Portfolio() {
                         <div className="pd2">{p.desc}</div>
                         <div className="pi">{p.impact}</div>
                         <div className="pt">
-                          {p.tech.map((x, j) => (
-                            <span key={j} className="ptt">
-                              {x}
-                            </span>
-                          ))}
+                          {p.tech.map((x, j) => {
+                            const ic = SKILL_ICONS[x];
+                            return (
+                              <span key={j} className="ptt">
+                                {ic && cloneElement(ic, { size: 12 })}
+                                {x}
+                              </span>
+                            );
+                          })}
                         </div>
                         {(p.link || p.repo) && (
                           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -633,11 +638,15 @@ export default function Portfolio() {
                   <div className="pd2">{p.desc}</div>
                   <div className="pi">{p.impact}</div>
                   <div className="pt">
-                    {p.tech.map((x, j) => (
-                      <span key={j} className="ptt">
-                        {x}
-                      </span>
-                    ))}
+                    {p.tech.map((x, j) => {
+                      const ic = SKILL_ICONS[x];
+                      return (
+                        <span key={j} className="ptt">
+                          {ic && cloneElement(ic, { size: 12 })}
+                          {x}
+                        </span>
+                      );
+                    })}
                   </div>
                   {(p.link || p.repo) && (
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>

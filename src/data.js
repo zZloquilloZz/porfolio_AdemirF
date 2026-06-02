@@ -42,17 +42,18 @@ export const translations = {
       contact: "Contacto",
     },
     hero: {
-      greeting: "Hola, soy",
+      greeting: "Hola 👋, soy",
       name: "Ademir Fernández",
-      role: "Data Analyst | Backend Developer | Automation Engineer",
+      role: "Data Analyst · Backend Developer · Automation Engineer",
+      pitch: "Convierto procesos manuales y tediosos en herramientas que el equipo usa todos los días. Me importa que lo que construyo termine en producción resolviendo un problema real, no en una carpeta olvidada.",
       availability: "● Disponible para nuevas oportunidades",
-      cta1: "Contáctame",
+      cta1: "Hablemos",
       cta2: "Descargar CV",
       location: "Lima, Perú",
     },
     about: {
       title: "Sobre Mí",
-      text: "Data Analyst y Automation Engineer con 3+ años de experiencia en el sector Telecom (BSS/OSS), especializado en el desarrollo de herramientas de automatización en Python que han reducido entre 90% y 99% los tiempos de trabajo manual en operaciones críticas. Experiencia complementaria en desarrollo backend y web con JavaScript, React y bases de datos PostgreSQL. Dominio de SQL avanzado, Power BI y análisis de infraestructura distribuida (Kubernetes, APIs REST/GraphQL). Orientado a generar impacto real: cada solución desarrollada se encuentra actualmente en uso productivo.",
+      text: "Soy Ademir, analista de datos e ingeniero de automatización. Llevo más de 3 años en el sector Telecom (BSS/OSS) creando herramientas en Python que le quitan al equipo el trabajo manual repetitivo — varias recortaron entre 90% y 99% el tiempo de tareas críticas, y todas están hoy en uso real. También me muevo en backend y web con JavaScript, React y PostgreSQL, y en el día a día vivo entre SQL avanzado, Power BI e infraestructura distribuida (Kubernetes, APIs REST/GraphQL). Lo que me mueve es simple: que lo que hago sirva de verdad y a alguien le haga el día más fácil.",
     },
     skills: {
       title: "Habilidades Técnicas",
@@ -271,7 +272,7 @@ export const translations = {
     contact: {
       title: "Contacto",
       subtitle:
-        "¿Interesado en trabajar juntos? Envíame un mensaje y coordinamos una reunión.",
+        "¿Tienes una idea, un proyecto o solo quieres saludar? Escríbeme y te respondo. Me gusta conversar sobre datos, automatización y construir cosas útiles.",
       name: "Nombre",
       email: "Correo",
       message: "Mensaje",
@@ -299,17 +300,18 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      greeting: "Hi, I'm",
+      greeting: "Hi 👋, I'm",
       name: "Ademir Fernández",
-      role: "Data Analyst | Backend Developer | Automation Engineer",
+      role: "Data Analyst · Backend Developer · Automation Engineer",
+      pitch: "I turn tedious manual processes into tools the team actually uses every day. What matters to me is that what I build ships to production and solves a real problem — not that it ends up in a forgotten folder.",
       availability: "● Open to new opportunities",
-      cta1: "Contact Me",
+      cta1: "Let's talk",
       cta2: "Download CV",
       location: "Lima, Peru",
     },
     about: {
       title: "About Me",
-      text: "Data Analyst and Automation Engineer with 3+ years of experience in the Telecom sector (BSS/OSS), specialized in building Python automation tools that have reduced manual work times by 90% to 99% across critical operations. Complementary experience in backend and web development with JavaScript, React, and PostgreSQL databases. Proficient in advanced SQL, Power BI, and distributed infrastructure analysis (Kubernetes, REST/GraphQL APIs). Impact-driven: every solution built is currently in active production use.",
+      text: "I'm Ademir, a data analyst and automation engineer. For 3+ years I've worked in Telecom (BSS/OSS) building Python tools that take repetitive manual work off the team's plate — several cut critical-task times by 90% to 99%, and all of them are in real use today. I also work across backend and web with JavaScript, React, and PostgreSQL, and my day-to-day lives between advanced SQL, Power BI, and distributed infrastructure (Kubernetes, REST/GraphQL APIs). What drives me is simple: that what I do is genuinely useful and makes someone's day easier.",
     },
     skills: {
       title: "Technical Skills",
@@ -527,7 +529,7 @@ export const translations = {
     contact: {
       title: "Contact",
       subtitle:
-        "Interested in working together? Send me a message and let's schedule a meeting.",
+        "Got an idea, a project, or just want to say hi? Drop me a message and I'll get back to you. I enjoy talking about data, automation, and building useful things.",
       name: "Name",
       email: "Email",
       message: "Message",

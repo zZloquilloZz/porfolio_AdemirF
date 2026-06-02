@@ -160,6 +160,12 @@ body {
   border: 2px solid #00d4aa;
   box-shadow: 0 0 40px rgba(0, 212, 170, 0.2);
   object-fit: cover;
+  transition: transform .4s, box-shadow .4s;
+}
+
+.profile-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 60px rgba(0, 212, 170, 0.35);
 }
 
 .hero-badge {
@@ -197,6 +203,14 @@ body {
   color: #6a6a7a;
   margin-bottom: 0;
   font-weight: 300;
+}
+
+.hp {
+  font-size: 15px;
+  color: #9a9aac;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 16px 0 6px;
 }
 
 .hl {
@@ -308,6 +322,13 @@ body {
   font-size: 13px;
   color: #c0c0c0;
   border-radius: 2px;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.st2:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 212, 170, .35);
+  background: rgba(0, 212, 170, .06);
 }
 
 .tl {
@@ -461,19 +482,35 @@ body {
 }
 
 .ptt {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 11px;
   padding: 3px 10px;
   background: rgba(255, 255, 255, .04);
-  color: #7a7a8a;
+  color: #9a9aaa;
   border-radius: 2px;
+  transition: color .2s, background .2s;
+}
+
+.ptt:hover {
+  color: #d0d0da;
+  background: rgba(0, 212, 170, .06);
 }
 
 .plk {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 12px;
   color: #00d4aa;
   font-size: 13px;
   text-decoration: none;
+  transition: transform .2s, opacity .2s;
+}
+
+.plk:hover {
+  transform: translateX(3px);
+  opacity: .85;
 }
 
 .eg {
@@ -643,6 +680,30 @@ body {
   }
 }
 
+/* Foco accesible visible al navegar con teclado */
+.nk:focus-visible,
+.lb:focus-visible,
+.bp:focus-visible,
+.bo:focus-visible,
+.plk:focus-visible,
+.hm:focus-visible,
+.fi:focus-visible,
+.fl:focus-visible {
+  outline: 2px solid #00d4aa;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 768px) {
   .nls {
     display: none;
@@ -668,6 +729,11 @@ body {
 
   .hero-content {
     text-align: center;
+  }
+
+  .hp {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-badge {
