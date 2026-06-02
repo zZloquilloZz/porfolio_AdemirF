@@ -63,27 +63,41 @@ def styles():
                           leading=12.5, textColor=ACCENT, spaceAfter=3)
     contact = ParagraphStyle("contact", fontName=FONT, fontSize=8.3,
                              leading=11, textColor=MUTED, spaceAfter=1)
-    h2 = ParagraphStyle("h2", fontName=FONT_B, fontSize=9.8,
-                        leading=11.5, textColor=ACCENT, spaceBefore=6, spaceAfter=2)
-    body = ParagraphStyle("body", fontName=FONT, fontSize=8.5,
-                          leading=10.9, textColor=black, alignment=TA_JUSTIFY)
-    jobtitle = ParagraphStyle("jobtitle", fontName=FONT_B, fontSize=9.3,
-                              leading=11, textColor=black)
-    meta = ParagraphStyle("meta", fontName=FONT_I, fontSize=8.2,
-                          leading=10, textColor=MUTED, spaceAfter=1)
-    bullet = ParagraphStyle("bullet", fontName=FONT, fontSize=8.5,
-                            leading=10.8, textColor=black, alignment=TA_JUSTIFY)
-    skill = ParagraphStyle("skill", fontName=FONT, fontSize=8.6,
-                           leading=11.7, textColor=black, spaceAfter=1)
-    company = ParagraphStyle("company", fontName=FONT_I, fontSize=8.6,
-                             leading=10.5, textColor=MUTED, spaceBefore=0, spaceAfter=2)
-    dateR = ParagraphStyle("dateR", fontName=FONT, fontSize=8.4,
-                           leading=10.5, textColor=ACCENT, alignment=TA_RIGHT)
-    skillLabel = ParagraphStyle("skillLabel", fontName=FONT_B, fontSize=8.6,
-                                leading=11.7, textColor=black)
+    h2 = ParagraphStyle("h2", fontName=FONT_B, fontSize=10,
+                        leading=12, textColor=ACCENT, spaceBefore=11, spaceAfter=3)
+    body = ParagraphStyle("body", fontName=FONT, fontSize=9.1,
+                          leading=13, textColor=black)
+    jobtitle = ParagraphStyle("jobtitle", fontName=FONT_B, fontSize=9.6,
+                              leading=12, textColor=black)
+    meta = ParagraphStyle("meta", fontName=FONT_I, fontSize=8.4,
+                          leading=10.5, textColor=MUTED, spaceAfter=1)
+    bullet = ParagraphStyle("bullet", fontName=FONT, fontSize=9.0,
+                            leading=12.6, textColor=black)
+    skill = ParagraphStyle("skill", fontName=FONT, fontSize=9.0,
+                           leading=12.6, textColor=black)
+    company = ParagraphStyle("company", fontName=FONT_I, fontSize=8.8,
+                             leading=11, textColor=MUTED, spaceBefore=0, spaceAfter=3)
+    dateR = ParagraphStyle("dateR", fontName=FONT, fontSize=8.6,
+                           leading=12, textColor=ACCENT, alignment=TA_RIGHT)
+    skillLabel = ParagraphStyle("skillLabel", fontName=FONT_B, fontSize=9.0,
+                                leading=12.6, textColor=ACCENT)
     return dict(name=name, role=role, contact=contact, h2=h2, body=body,
                 jobtitle=jobtitle, meta=meta, bullet=bullet, skill=skill,
                 company=company, dateR=dateR, skillLabel=skillLabel)
+
+
+def skill_row(label, items, S):
+    """Etiqueta en columna fija + valores -> alineación tipo grid, ordenada."""
+    t = Table([[Paragraph(label, S["skillLabel"]), Paragraph(items, S["skill"])]],
+              colWidths=[42 * mm, 138 * mm])
+    t.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 1),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
+    ]))
+    return t
 
 
 def header_row(left_para, right_text, S, lw=128 * mm, rw=52 * mm):
@@ -110,10 +124,10 @@ def section(title, S):
 
 def bullets(items, S):
     return ListFlowable(
-        [ListItem(Paragraph(t, S["bullet"]), leftIndent=10, value="•",
-                  spaceBefore=1) for t in items],
-        bulletType="bullet", start="•", leftIndent=12, bulletFontName=FONT,
-        bulletFontSize=8.5, spaceBefore=1, spaceAfter=1,
+        [ListItem(Paragraph(t, S["bullet"]), leftIndent=14, value="•",
+                  spaceBefore=3) for t in items],
+        bulletType="bullet", start="•", leftIndent=14, bulletFontName=FONT,
+        bulletFontSize=8.5, spaceBefore=2, spaceAfter=2,
     )
 
 
@@ -306,8 +320,8 @@ def build(lang):
     path = os.path.join(OUT_DIR, f"CV_Ademir_Fernandez_{lang.upper()}.pdf")
     doc = SimpleDocTemplate(
         path, pagesize=A4,
-        leftMargin=15 * mm, rightMargin=15 * mm,
-        topMargin=10 * mm, bottomMargin=10 * mm,
+        leftMargin=16 * mm, rightMargin=16 * mm,
+        topMargin=14 * mm, bottomMargin=14 * mm,
         title=f"CV — {d['name']}", author=d["name"],
     )
     el = []
@@ -328,7 +342,7 @@ def build(lang):
 
     el += section(d["sec"]["skills"], S)
     for cat, items in d["skills"]:
-        el.append(Paragraph(f'<b>{cat}:</b> {items}', S["skill"]))
+        el.append(skill_row(cat, items, S))
 
     el += section(d["sec"]["exp"], S)
     for j in d["exp"]:
