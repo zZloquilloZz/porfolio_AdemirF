@@ -3,3 +3,6 @@ dist
 .DS_Store
 C L A U D E . m d
 .claude/
+
+# Capturas crudas del Hub (datos de cliente — sanitizar antes de usar)
+raw_screenshots/
