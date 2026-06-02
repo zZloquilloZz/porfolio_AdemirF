@@ -119,9 +119,23 @@ function Carousel({ images }) {
           paddingBottom: "56.25%",
         }}
       >
+        {/* Fondo borroso de la misma imagen: rellena la caja sin recortar el contenido */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${images[idx].src})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(20px) brightness(0.45)",
+            transform: "scale(1.2)",
+          }}
+        />
         <img
           src={images[idx].src}
           alt={images[idx].alt}
+          loading="lazy"
           onClick={() => setOpen(true)}
           title="Click para ampliar"
           style={{
