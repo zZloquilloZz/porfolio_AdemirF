@@ -11,6 +11,8 @@ import {
   FaInfinity,
   FaExchangeAlt,
   FaChartBar,
+  FaCss3Alt,
+  FaVial,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import {
@@ -20,7 +22,6 @@ import {
   SiTypescript,
   SiReact,
   SiGnubash,
-  SiGnu,
   SiGraphql,
   SiSupabase,
   SiNodedotjs,
@@ -35,9 +36,19 @@ import {
   SiJira,
   SiTrello,
   SiMetabase,
+  SiHtml5,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiFlask,
+  SiPrisma,
+  SiAnthropic,
+  SiCamunda,
+  SiApachekafka,
+  SiVitest,
+  SiPytest,
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
-import { VscAzureDevops } from "react-icons/vsc";
+import { VscAzureDevops, VscAzure } from "react-icons/vsc";
 
 // ============================================
 // CONFIGURACIÓN / CONSTANTES
@@ -347,40 +358,55 @@ const ico = (Cmp, color = TEAL) => (
 const SKILL_ICONS = {
   // Lenguajes
   Python:           ico(SiPython, "#4B8BBE"),
-  SQL:              ico(FaDatabase),
   JavaScript:       ico(SiJavascript, "#F7DF1E"),
   TypeScript:       ico(SiTypescript, "#3178C6"),
-  React:            ico(SiReact, "#61DAFB"),
+  SQL:              ico(FaDatabase),
   Bash:             ico(SiGnubash, "#4EAA25"),
-  AWK:              ico(SiGnu, "#A42E2B"),
-  // Backend & APIs
+  AWK:              ico(FaTerminal),
+  // Frontend
+  React:            ico(SiReact, "#61DAFB"),
+  "Next.js":        ico(SiNextdotjs, "#FFFFFF"),
+  HTML5:            ico(SiHtml5, "#E34F26"),
+  CSS3:             ico(FaCss3Alt, "#2E64C9"),
+  "Tailwind CSS":   ico(SiTailwindcss, "#06B6D4"),
+  Vite:             ico(SiVite, "#646CFF"),
+  // Backend, APIs & IA
+  Flask:            ico(SiFlask, "#FFFFFF"),
+  "Node.js":        ico(SiNodedotjs, "#5FA04E"),
   "REST APIs":      ico(TbApi),
   GraphQL:          ico(SiGraphql, "#E10098"),
   Supabase:         ico(SiSupabase, "#3FCF8E"),
-  "Node.js":        ico(SiNodedotjs, "#5FA04E"),
-  "SSH Tunneling":  ico(FaTerminal),
+  Prisma:           ico(SiPrisma, "#FFFFFF"),
+  "Anthropic (Claude)": ico(SiAnthropic, "#D97757"),
   // Datos & BI
-  "Power BI":       ico(FaChartBar, "#F2C811"),
   PostgreSQL:       ico(SiPostgresql, "#4169E1"),
-  "SQL Server":     ico(FaDatabase, "#CC2927"),
+  "SQL Server":     ico(FaDatabase, "#D04A4A"),
   Oracle:           ico(FaDatabase, "#F80000"),
-  "Excel Avanzado": ico(FaFileExcel, "#217346"),
+  "Power BI":       ico(FaChartBar, "#F2C811"),
   Metabase:         ico(SiMetabase, "#509EE3"),
   Grafana:          ico(SiGrafana, "#F46800"),
+  "Excel Avanzado": ico(FaFileExcel, "#1D9C5A"),
+  "Advanced Excel": ico(FaFileExcel, "#1D9C5A"),
   ETL:              ico(FaExchangeAlt),
-  // Infraestructura
-  Kubernetes:       ico(SiKubernetes, "#326CE5"),
-  Datadog:          ico(SiDatadog, "#7C3AED"),
+  // Infraestructura & DevOps
+  Kubernetes:       ico(SiKubernetes, "#5C8DEF"),
+  Azure:            ico(VscAzure, "#3299E0"),
+  "Camunda BPM":    ico(SiCamunda, "#FC5D0D"),
+  Kafka:            ico(SiApachekafka, "#FFFFFF"),
+  Datadog:          ico(SiDatadog, "#8A5CF6"),
   Git:              ico(SiGit, "#F05032"),
   "GitHub Actions": ico(SiGithubactions, "#2088FF"),
   "CI/CD":          ico(FaInfinity),
+  // Testing
+  Vitest:           ico(SiVitest, "#8AC93A"),
+  Playwright:       ico(FaVial, "#45BA4B"),
+  pytest:           ico(SiPytest, "#2C9FD3"),
   // Herramientas
-  "Azure DevOps":   ico(VscAzureDevops, "#0078D7"),
+  "Azure DevOps":   ico(VscAzureDevops, "#3299E0"),
   JIRA:             ico(SiJira, "#2684FF"),
-  Trello:           ico(SiTrello, "#0052CC"),
+  Trello:           ico(SiTrello, "#3B7BE0"),
   Postman:          ico(SiPostman, "#FF6C37"),
-  DBeaver:          ico(SiDbeaver, TEAL),
-  Vite:             ico(SiVite, "#646CFF"),
+  DBeaver:          ico(SiDbeaver, "#73B5A0"),
 };
 
 export default function Portfolio() {
