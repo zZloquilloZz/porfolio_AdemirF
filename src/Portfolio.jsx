@@ -66,106 +66,201 @@ const imageMap = { camImages, ppImages, utpImages, ksImages };
 
 function Carousel({ images }) {
   const [idx, setIdx] = useState(0);
+  const [open, setOpen] = useState(false);
   const len = images.length;
+  const prev = () => setIdx((i) => (i - 1 + len) % len);
+  const next = () => setIdx((i) => (i + 1) % len);
+
+  // Teclado en el lightbox: Esc cierra, flechas navegan
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, len]);
+
+  const arrowStyle = (side) => ({
+    position: "absolute",
+    [side]: 8,
+    top: "50%",
+    transform: "translateY(-50%)",
+    background: "rgba(0,0,0,0.6)",
+    color: "#00d4aa",
+    border: "none",
+    borderRadius: "50%",
+    width: 32,
+    height: 32,
+    cursor: "pointer",
+    fontSize: 18,
+    zIndex: 1,
+  });
+
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        marginBottom: 16,
-        borderRadius: 4,
-        overflow: "hidden",
-        background: "rgba(0,0,0,0.3)",
-        aspectRatio: "16/9",
-        height: 0,
-        paddingBottom: "56.25%",
-      }}
-    >
-      <img
-        src={images[idx].src}
-        alt={images[idx].alt}
+    <>
+      <div
         style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
+          position: "relative",
           width: "100%",
-          height: "100%",
-          objectFit: "cover",
+          marginBottom: 16,
           borderRadius: 4,
+          overflow: "hidden",
+          background: "rgba(0,0,0,0.35)",
+          aspectRatio: "16/9",
+          height: 0,
+          paddingBottom: "56.25%",
         }}
-      />
-      {len > 1 && (
-        <>
+      >
+        <img
+          src={images[idx].src}
+          alt={images[idx].alt}
+          onClick={() => setOpen(true)}
+          title="Click para ampliar"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            borderRadius: 4,
+            cursor: "zoom-in",
+          }}
+        />
+        {len > 1 && (
+          <>
+            <button aria-label="Anterior" onClick={prev} style={arrowStyle("left")}>
+              ‹
+            </button>
+            <button aria-label="Siguiente" onClick={next} style={arrowStyle("right")}>
+              ›
+            </button>
+            <div
+              style={{
+                position: "absolute",
+                bottom: 8,
+                left: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                gap: 6,
+                zIndex: 1,
+              }}
+            >
+              {images.map((_, i) => (
+                <span
+                  key={i}
+                  onClick={() => setIdx(i)}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                    background: i === idx ? "#00d4aa" : "rgba(255,255,255,0.4)",
+                  }}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {open && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 1000,
+            background: "rgba(5,5,8,0.94)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+            cursor: "zoom-out",
+          }}
+        >
           <button
-            aria-label="Anterior"
-            onClick={() => setIdx((i) => (i - 1 + len) % len)}
+            aria-label="Cerrar"
+            onClick={() => setOpen(false)}
             style={{
               position: "absolute",
-              left: 8,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(0,0,0,0.6)",
-              color: "#00d4aa",
-              border: "none",
+              top: 20,
+              right: 24,
+              background: "rgba(0,0,0,0.5)",
+              color: "#fff",
+              border: "1px solid rgba(255,255,255,0.2)",
               borderRadius: "50%",
-              width: 32,
-              height: 32,
+              width: 40,
+              height: 40,
               cursor: "pointer",
-              fontSize: 18,
-              zIndex: 1,
+              fontSize: 22,
+              lineHeight: 1,
             }}
           >
-            ‹
+            ×
           </button>
-          <button
-            aria-label="Siguiente"
-            onClick={() => setIdx((i) => (i + 1) % len)}
+          <img
+            src={images[idx].src}
+            alt={images[idx].alt}
+            onClick={(e) => e.stopPropagation()}
             style={{
-              position: "absolute",
-              right: 8,
-              top: "50%",
-              transform: "translateY(-50%)",
-              background: "rgba(0,0,0,0.6)",
-              color: "#00d4aa",
-              border: "none",
-              borderRadius: "50%",
-              width: 32,
-              height: 32,
-              cursor: "pointer",
-              fontSize: 18,
-              zIndex: 1,
+              maxWidth: "92vw",
+              maxHeight: "88vh",
+              objectFit: "contain",
+              borderRadius: 6,
+              boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+              cursor: "default",
             }}
-          >
-            ›
-          </button>
-          <div
-            style={{
-              position: "absolute",
-              bottom: 8,
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              gap: 6,
-              zIndex: 1,
-            }}
-          >
-            {images.map((_, i) => (
-              <span
-                key={i}
-                onClick={() => setIdx(i)}
-                style={{
-                  width: 8,
-                  height: 8,
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  background: i === idx ? "#00d4aa" : "rgba(255,255,255,0.4)",
+          />
+          {len > 1 && (
+            <>
+              <button
+                aria-label="Anterior"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prev();
                 }}
-              />
-            ))}
-          </div>
-        </>
+                style={{ ...arrowStyle("left"), left: 16, width: 44, height: 44, fontSize: 26 }}
+              >
+                ‹
+              </button>
+              <button
+                aria-label="Siguiente"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  next();
+                }}
+                style={{ ...arrowStyle("right"), right: 16, width: 44, height: 44, fontSize: 26 }}
+              >
+                ›
+              </button>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 20,
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  color: "#c0c0c0",
+                  fontFamily: "'Space Mono', monospace",
+                  fontSize: 13,
+                }}
+              >
+                {idx + 1} / {len}
+              </div>
+            </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
