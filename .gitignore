@@ -6,3 +6,7 @@ C L A U D E . m d
 
 # Capturas crudas del Hub (datos de cliente — sanitizar antes de usar)
 raw_screenshots/
+
+# Python
+__pycache__/
+*.pyc
