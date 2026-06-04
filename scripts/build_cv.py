@@ -190,11 +190,11 @@ DATA = {
                 "company": "Indra Minsait — Proyecto Pangea / NTTData",
                 "date": "Dic 2025 – Actualidad",
                 "bullets": [
-                    "Diseñé y construí el Hub Operativo N1 (TUI + web con Flask/HTMX/SSE) que unificó las ~12 herramientas que el equipo ejecutaba una por una vía SSH, con ejecución en vivo por streaming y flujo seguro dry-run -> confirmar para operaciones destructivas. Recortó el análisis de incidencias de ~1-2 h a ~20 min y los trabajos operativos (liberaciones/sanity) de 30+ min a 2-3 min, elevando ~50% la producción del equipo (4 analistas) y eliminando la dependencia de licencias de OpenLens.",
-                    "Integré el stack BSS/OSS bajo un contrato declarativo único: Camunda BPM (análisis de árboles de procesos y detección de causa raíz), GraphQL/Apollo y APIs TM Forum, Kafka/Strimzi (reinicio guiado de consumers caídos), Kubernetes/Azure (AKS) y bases multi-motor (PostgreSQL/MySQL/SQL Server).",
-                    "Implementé consultas SQL avanzadas con CTEs y JSONB en PostgreSQL para analizar millones de registros (Notifications, WorkItems, OrderEvents), identificando registros obsoletos con 99.8% de precisión para sustentar el purgado en producción.",
-                    "Desarrollé módulos de diagnóstico que traducen errores técnicos (exit codes, OOM, HikariPool, variables TMF622) a lenguaje operativo, con exportación a Excel/HTML; sostuve la calidad con ~527 pruebas automatizadas (pytest).",
-                    "Diseñé y mantuve dashboards en Power BI y Grafana y análisis de logs en Datadog para KPIs y observabilidad, con detección proactiva de incidencias por severidad y frecuencia.",
+                    "Arquitecté y desarrollé el backend del Hub Operativo N1 en Python (Flask + HTMX + SSE): orquesta ~12 herramientas que el equipo ejecutaba una por una vía SSH, con ejecución en streaming en vivo y un flujo seguro dry-run -> confirmar para operaciones destructivas. Recortó el análisis de incidencias de ~1-2 h a ~20 min y los trabajos operativos (liberaciones/sanity) de 30+ min a 2-3 min, elevando ~50% la producción del equipo (4 analistas) y eliminando la dependencia de licencias de OpenLens.",
+                    "Integré el stack BSS/OSS bajo un contrato declarativo único: consumo de APIs GraphQL/Apollo y TM Forum, Camunda BPM (análisis de árboles de procesos y causa raíz), Kafka/Strimzi (reinicio guiado de consumers caídos) y Kubernetes/Azure (AKS), sobre bases multi-motor (PostgreSQL/MySQL/SQL Server).",
+                    "Diseñé consultas SQL avanzadas con CTEs y JSONB en PostgreSQL para procesar millones de registros (Notifications, WorkItems, OrderEvents), identificando datos obsoletos con 99.8% de precisión para sustentar purgados en producción.",
+                    "Aseguré la fiabilidad con ~527 pruebas automatizadas (pytest) y módulos de diagnóstico que traducen errores técnicos (exit codes, OOM, HikariPool, variables TMF622) a lenguaje operativo, con exportación a Excel/HTML.",
+                    "Instrumenté la observabilidad con dashboards en Power BI y Grafana y análisis de logs en Datadog, con detección proactiva de incidencias por severidad y frecuencia.",
                 ],
             },
             {
@@ -202,9 +202,9 @@ DATA = {
                 "company": "Indra Minsait",
                 "date": "Oct 2024 – Dic 2025",
                 "bullets": [
-                    "Analicé datos de monitoreo de redes FTTH y HFC en Grafana, identificando patrones de degradación en tiempo real que permitieron alertas tempranas y redujeron los tiempos de caída de servicio en 20%.",
-                    "Integré Grafana con fuentes de datos personalizadas (bases internas, APIs de monitoreo), mejorando la detección de anomalías en 30% y centralizando la visibilidad operativa del equipo.",
-                    "Extraje y consolidé datos de incidencias IPTV/OTT desde múltiples fuentes, generando reportes unificados en Excel para optimizar la asignación de recursos y priorizar casos críticos.",
+                    "Integré Grafana con fuentes de datos personalizadas (bases internas y APIs de monitoreo), mejorando la detección de anomalías en 30% y centralizando la visibilidad operativa del equipo.",
+                    "Construí pipelines de extracción y consolidación de incidencias IPTV/OTT desde múltiples fuentes, generando reportes unificados para priorizar casos críticos y optimizar la asignación de recursos.",
+                    "Analicé datos de monitoreo FTTH y HFC en tiempo real, identificando patrones de degradación que habilitaron alertas tempranas y redujeron los tiempos de caída de servicio en 20%.",
                 ],
             },
             {
@@ -212,9 +212,8 @@ DATA = {
                 "company": "Servicios de Call Center (SCC)",
                 "date": "Ago 2022 – Oct 2024",
                 "bullets": [
-                    "Elaboré informes gerenciales procesando 15,000+ tickets mensuales con Excel avanzado (tablas dinámicas, macros VBA, fórmulas anidadas), dando a la gerencia visibilidad completa del rendimiento operativo.",
-                    "Implementé un sistema de seguimiento de KPIs en Excel con actualización semi-automática que redujo en 60% el tiempo de generación de reportes semanales.",
-                    "Desarrollé una herramienta en Excel que automatizó búsquedas y cálculos frecuentes, reduciendo en 20% el tiempo promedio de atención (TMA).",
+                    "Automaticé la generación de reportes gerenciales con macros VBA y Excel avanzado (tablas dinámicas, fórmulas anidadas) procesando 15,000+ tickets mensuales, reduciendo en 60% el tiempo de los reportes semanales.",
+                    "Desarrollé herramientas internas que automatizaron búsquedas y cálculos frecuentes del equipo, reduciendo en 20% el tiempo promedio de atención (TMA) y dando a la gerencia visibilidad completa del rendimiento operativo.",
                 ],
             },
         ],
@@ -268,11 +267,11 @@ DATA = {
                 "company": "Indra Minsait — Pangea Project / NTTData",
                 "date": "Dec 2025 – Present",
                 "bullets": [
-                    "Designed and built the N1 Operations Hub (TUI + web with Flask/HTMX/SSE) that unified the ~12 tools the team used to run one by one over SSH, with live streaming execution and a safe dry-run -> confirm flow for destructive operations. It cut incident analysis from ~1-2 h to ~20 min and operational tasks (releases/sanity checks) from 30+ min to 2-3 min, raised team output ~50% (4 analysts), and removed the OpenLens license dependency.",
-                    "Integrated the BSS/OSS stack under a single declarative contract: Camunda BPM (process-tree analysis and root-cause detection), GraphQL/Apollo and TM Forum APIs, Kafka/Strimzi (guided restart of dead consumers), Kubernetes/Azure (AKS), and multi-engine databases (PostgreSQL/MySQL/SQL Server).",
-                    "Built advanced SQL queries with CTEs and JSONB in PostgreSQL to analyze millions of records (Notifications, WorkItems, OrderEvents), identifying obsolete records with 99.8% accuracy to support data-purge decisions in production.",
-                    "Developed diagnostic modules that translate technical errors (exit codes, OOM, HikariPool, TMF622 variables) into operational language, with Excel/HTML export; kept quality up with ~527 automated tests (pytest).",
-                    "Designed and maintained Power BI and Grafana dashboards and Datadog log analysis for operational KPIs and observability, with proactive incident detection by severity and frequency.",
+                    "Architected and built the N1 Operations Hub backend in Python (Flask + HTMX + SSE): orchestrates ~12 tools the team used to run one by one over SSH, with live streaming execution and a safe dry-run -> confirm flow for destructive operations. It cut incident analysis from ~1-2 h to ~20 min and operational tasks (releases/sanity checks) from 30+ min to 2-3 min, raised team output ~50% (4 analysts), and removed the OpenLens license dependency.",
+                    "Integrated the BSS/OSS stack under a single declarative contract: GraphQL/Apollo and TM Forum API consumption, Camunda BPM (process-tree and root-cause analysis), Kafka/Strimzi (guided restart of dead consumers), and Kubernetes/Azure (AKS), over multi-engine databases (PostgreSQL/MySQL/SQL Server).",
+                    "Designed advanced SQL queries with CTEs and JSONB in PostgreSQL to process millions of records (Notifications, WorkItems, OrderEvents), identifying obsolete data with 99.8% accuracy to support production data-purge decisions.",
+                    "Ensured reliability with ~527 automated tests (pytest) and diagnostic modules that translate technical errors (exit codes, OOM, HikariPool, TMF622 variables) into operational language, with Excel/HTML export.",
+                    "Instrumented observability with Power BI and Grafana dashboards and Datadog log analysis, with proactive incident detection by severity and frequency.",
                 ],
             },
             {
@@ -280,9 +279,9 @@ DATA = {
                 "company": "Indra Minsait",
                 "date": "Oct 2024 – Dec 2025",
                 "bullets": [
-                    "Analyzed FTTH and HFC network monitoring data in Grafana, identifying real-time degradation patterns that enabled early alerts and reduced service downtime by 20%.",
-                    "Integrated Grafana with custom data sources (internal databases, monitoring APIs), improving anomaly detection by 30% and centralizing the team's operational visibility.",
-                    "Extracted and consolidated IPTV/OTT incident data from multiple sources into unified Excel reports to optimize resource allocation and prioritize critical cases.",
+                    "Integrated Grafana with custom data sources (internal databases and monitoring APIs), improving anomaly detection by 30% and centralizing the team's operational visibility.",
+                    "Built extraction and consolidation pipelines for IPTV/OTT incident data from multiple sources, producing unified reports to prioritize critical cases and optimize resource allocation.",
+                    "Analyzed FTTH and HFC monitoring data in real time, identifying degradation patterns that enabled early alerts and reduced service downtime by 20%.",
                 ],
             },
             {
@@ -290,9 +289,8 @@ DATA = {
                 "company": "Servicios de Call Center (SCC)",
                 "date": "Aug 2022 – Oct 2024",
                 "bullets": [
-                    "Produced executive reports processing 15,000+ monthly tickets with advanced Excel (pivot tables, VBA macros, nested formulas), giving management full operational visibility.",
-                    "Implemented a semi-automated KPI tracking system in Excel that cut weekly report generation time by 60%.",
-                    "Built an Excel tool that automated frequent lookups and calculations, reducing average handling time (AHT) by 20%.",
+                    "Automated executive reporting with VBA macros and advanced Excel (pivot tables, nested formulas) processing 15,000+ monthly tickets, cutting weekly report generation time by 60%.",
+                    "Built internal tools that automated the team's frequent lookups and calculations, reducing average handling time (AHT) by 20% and giving management full operational visibility.",
                 ],
             },
         ],
