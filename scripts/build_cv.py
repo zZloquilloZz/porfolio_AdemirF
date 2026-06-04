@@ -37,6 +37,9 @@ OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "public", "cv"))
 # Arial es la fuente más estándar para ATS; si no está, cae a Helvetica (sin ToUnicode).
 FONT, FONT_B, FONT_I = "Helvetica", "Helvetica-Bold", "Helvetica-Oblique"
 _win = os.path.join(os.environ.get("WINDIR", r"C:\\Windows"), "Fonts")
+# WSL: las fuentes de Windows viven en /mnt/c/Windows/Fonts -> embeber Arial (ToUnicode) para ATS
+if not os.path.isdir(_win) and os.path.isdir("/mnt/c/Windows/Fonts"):
+    _win = "/mnt/c/Windows/Fonts"
 _cands = [
     ("CVSans", "arial.ttf", "arialbd.ttf", "ariali.ttf"),
     ("CVSans", "calibri.ttf", "calibrib.ttf", "calibrii.ttf"),
@@ -157,27 +160,28 @@ PHONE = "900 569 010"
 DATA = {
     "es": {
         "name": "Ademir Alfredo Fernández Hernández",
-        "role": "Data Analyst · Backend Developer · Automation Engineer",
+        "role": "Backend Developer · Automation Engineer · Data Analyst",
         "loc": "Lima, Perú",
         "sec": dict(profile="Perfil profesional", skills="Habilidades técnicas",
                     exp="Experiencia laboral", proj="Proyectos destacados",
                     edu="Educación"),
         "profile": (
-            "Data Analyst y Automation Engineer con 3+ años en el sector Telecom (BSS/OSS). "
-            "Diseño y construyo herramientas en Python que llegan a producción y eliminan trabajo "
-            "manual crítico: mi proyecto principal es un hub operativo (TUI + web) que unificó ~12 "
-            "herramientas, recortó el análisis de incidencias de 1-2 h a ~20 min y elevó ~50% la "
-            "producción del equipo. Experiencia full-stack (React, Next.js, Node, Supabase) e "
-            "integración de IA (Anthropic/Claude). Dominio de SQL avanzado, Power BI y análisis de "
-            "infraestructura distribuida (Kubernetes, Azure, APIs REST/GraphQL). Orientado a impacto medible."
+            "Backend Developer y Automation Engineer con 3+ años en el sector Telecom (BSS/OSS). "
+            "Diseño y construyo servicios y herramientas en Python que llegan a producción y eliminan "
+            "trabajo manual crítico: mi proyecto principal es un hub operativo (TUI + web con Flask/HTMX/SSE) "
+            "que unificó ~12 herramientas, recortó el análisis de incidencias de 1-2 h a ~20 min y elevó "
+            "~50% la producción del equipo, sostenido con ~527 pruebas automatizadas (pytest). Sólido en "
+            "diseño de APIs (REST/GraphQL), integración de sistemas distribuidos (Kubernetes, Azure/AKS, "
+            "Kafka, Camunda BPM), SQL avanzado y CI/CD. Experiencia full-stack (React, Next.js, Node, "
+            "Supabase) e integración de IA (Anthropic/Claude). Orientado a impacto medible."
         ),
         "skills": [
             ("Lenguajes", "Python, JavaScript, TypeScript, SQL, Bash, AWK"),
-            ("Frontend", "React, Next.js, HTML5, CSS3, Tailwind CSS, Vite"),
             ("Backend, APIs e IA", "Flask, Node.js, REST APIs, GraphQL, Supabase, Prisma, Anthropic (Claude)"),
+            ("Infraestructura y DevOps", "Kubernetes, Azure (AKS), Camunda BPM, Kafka, Datadog, Git, GitHub Actions, CI/CD"),
             ("Datos y BI", "PostgreSQL, SQL Server, Oracle, Power BI, Metabase, Grafana, Excel avanzado, ETL"),
-            ("Infraestructura y DevOps", "Kubernetes, Azure, Camunda BPM, Kafka, Datadog, Git, GitHub Actions, CI/CD"),
-            ("Testing", "Vitest, Playwright, pytest"),
+            ("Frontend", "React, Next.js, HTML5, CSS3, Tailwind CSS, Vite"),
+            ("Testing", "pytest, Vitest, Playwright"),
             ("Herramientas", "Azure DevOps, JIRA, Trello, Postman, DBeaver"),
         ],
         "exp": [
@@ -235,27 +239,27 @@ DATA = {
     },
     "en": {
         "name": "Ademir Alfredo Fernández Hernández",
-        "role": "Data Analyst · Backend Developer · Automation Engineer",
+        "role": "Backend Developer · Automation Engineer · Data Analyst",
         "loc": "Lima, Peru",
         "sec": dict(profile="Professional summary", skills="Technical skills",
                     exp="Work experience", proj="Featured projects",
                     edu="Education"),
         "profile": (
-            "Data Analyst and Automation Engineer with 3+ years in Telecom (BSS/OSS). I design and "
-            "build Python tools that ship to production and remove critical manual work: my flagship "
-            "project is an operations hub (TUI + web) that unified ~12 tools, cut incident analysis "
-            "from 1-2 h to ~20 min, and raised team output by ~50%. Full-stack experience (React, "
-            "Next.js, Node, Supabase) and AI integration (Anthropic/Claude). Strong in advanced SQL, "
-            "Power BI, and distributed-infrastructure analysis (Kubernetes, Azure, REST/GraphQL APIs). "
-            "Focused on measurable impact."
+            "Backend Developer and Automation Engineer with 3+ years in Telecom (BSS/OSS). I design and "
+            "build Python services and tools that ship to production and remove critical manual work: my "
+            "flagship project is an operations hub (TUI + web with Flask/HTMX/SSE) that unified ~12 tools, "
+            "cut incident analysis from 1-2 h to ~20 min, and raised team output by ~50%, backed by ~527 "
+            "automated tests (pytest). Strong in API design (REST/GraphQL), distributed-systems integration "
+            "(Kubernetes, Azure/AKS, Kafka, Camunda BPM), advanced SQL, and CI/CD. Full-stack experience "
+            "(React, Next.js, Node, Supabase) and AI integration (Anthropic/Claude). Focused on measurable impact."
         ),
         "skills": [
             ("Languages", "Python, JavaScript, TypeScript, SQL, Bash, AWK"),
-            ("Frontend", "React, Next.js, HTML5, CSS3, Tailwind CSS, Vite"),
             ("Backend, APIs & AI", "Flask, Node.js, REST APIs, GraphQL, Supabase, Prisma, Anthropic (Claude)"),
+            ("Infrastructure & DevOps", "Kubernetes, Azure (AKS), Camunda BPM, Kafka, Datadog, Git, GitHub Actions, CI/CD"),
             ("Data & BI", "PostgreSQL, SQL Server, Oracle, Power BI, Metabase, Grafana, Advanced Excel, ETL"),
-            ("Infrastructure & DevOps", "Kubernetes, Azure, Camunda BPM, Kafka, Datadog, Git, GitHub Actions, CI/CD"),
-            ("Testing", "Vitest, Playwright, pytest"),
+            ("Frontend", "React, Next.js, HTML5, CSS3, Tailwind CSS, Vite"),
+            ("Testing", "pytest, Vitest, Playwright"),
             ("Tools", "Azure DevOps, JIRA, Trello, Postman, DBeaver"),
         ],
         "exp": [
