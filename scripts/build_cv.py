@@ -15,8 +15,8 @@ Requiere: pip install reportlab
 
 import os
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.units import mm
-from reportlab.lib.colors import HexColor, black
+from reportlab.lib.units import mm, inch
+from reportlab.lib.colors import black
 from reportlab.lib.enums import TA_JUSTIFY
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (
@@ -28,8 +28,9 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
 
-ACCENT = HexColor("#0E7C66")   # teal oscuro, legible impreso
-MUTED = HexColor("#444444")
+# Formato Harvard OCS: sin color, todo negro sobre blanco (ver guía oficial de careerservices.fas.harvard.edu)
+ACCENT = black
+MUTED = black
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.normpath(os.path.join(HERE, "..", "public", "cv"))
 
@@ -59,31 +60,32 @@ for fam, reg, bold, ital in _cands:
         pass
 
 # ---------------------------------------------------------------- estilos
+# Tamaños dentro del rango 10-12pt que exige la guía Harvard OCS para el cuerpo del CV.
 def styles():
-    name = ParagraphStyle("name", fontName=FONT_B, fontSize=16.5,
-                          leading=19, textColor=black, spaceAfter=1)
-    role = ParagraphStyle("role", fontName=FONT, fontSize=10,
-                          leading=12.5, textColor=ACCENT, spaceAfter=3)
-    contact = ParagraphStyle("contact", fontName=FONT, fontSize=8.3,
-                             leading=11, textColor=MUTED, spaceAfter=1)
-    h2 = ParagraphStyle("h2", fontName=FONT_B, fontSize=10,
-                        leading=12, textColor=ACCENT, spaceBefore=11, spaceAfter=3)
-    body = ParagraphStyle("body", fontName=FONT, fontSize=9.1,
-                          leading=13, textColor=black)
-    jobtitle = ParagraphStyle("jobtitle", fontName=FONT_B, fontSize=9.6,
-                              leading=12, textColor=black)
-    meta = ParagraphStyle("meta", fontName=FONT_I, fontSize=8.4,
-                          leading=10.5, textColor=MUTED, spaceAfter=1)
-    bullet = ParagraphStyle("bullet", fontName=FONT, fontSize=9.0,
-                            leading=12.6, textColor=black)
-    skill = ParagraphStyle("skill", fontName=FONT, fontSize=9.0,
-                           leading=12.6, textColor=black)
-    company = ParagraphStyle("company", fontName=FONT_I, fontSize=8.8,
-                             leading=11, textColor=MUTED, spaceBefore=0, spaceAfter=3)
-    dateR = ParagraphStyle("dateR", fontName=FONT, fontSize=8.6,
-                           leading=12, textColor=ACCENT, alignment=TA_RIGHT)
-    skillLabel = ParagraphStyle("skillLabel", fontName=FONT_B, fontSize=9.0,
-                                leading=12.6, textColor=ACCENT)
+    name = ParagraphStyle("name", fontName=FONT_B, fontSize=17,
+                          leading=20, textColor=black, spaceAfter=2)
+    role = ParagraphStyle("role", fontName=FONT, fontSize=11,
+                          leading=14, textColor=black, spaceAfter=4)
+    contact = ParagraphStyle("contact", fontName=FONT, fontSize=10,
+                             leading=13, textColor=black, spaceAfter=1)
+    h2 = ParagraphStyle("h2", fontName=FONT_B, fontSize=11.5,
+                        leading=14, textColor=black, spaceBefore=9, spaceAfter=3)
+    body = ParagraphStyle("body", fontName=FONT, fontSize=10.3,
+                          leading=13.5, textColor=black)
+    jobtitle = ParagraphStyle("jobtitle", fontName=FONT_B, fontSize=10.5,
+                              leading=13, textColor=black)
+    meta = ParagraphStyle("meta", fontName=FONT_I, fontSize=10,
+                          leading=12.5, textColor=black, spaceAfter=1)
+    bullet = ParagraphStyle("bullet", fontName=FONT, fontSize=10.3,
+                            leading=13.5, textColor=black)
+    skill = ParagraphStyle("skill", fontName=FONT, fontSize=10.3,
+                           leading=13.5, textColor=black)
+    company = ParagraphStyle("company", fontName=FONT_I, fontSize=10,
+                             leading=12.5, textColor=black, spaceBefore=0, spaceAfter=2)
+    dateR = ParagraphStyle("dateR", fontName=FONT, fontSize=10,
+                           leading=12.5, textColor=black, alignment=TA_RIGHT)
+    skillLabel = ParagraphStyle("skillLabel", fontName=FONT_B, fontSize=10.3,
+                                leading=14.5, textColor=black)
     return dict(name=name, role=role, contact=contact, h2=h2, body=body,
                 jobtitle=jobtitle, meta=meta, bullet=bullet, skill=skill,
                 company=company, dateR=dateR, skillLabel=skillLabel)
@@ -92,7 +94,7 @@ def styles():
 def skill_row(label, items, S):
     """Etiqueta en columna fija + valores -> alineación tipo grid, ordenada."""
     t = Table([[Paragraph(label, S["skillLabel"]), Paragraph(items, S["skill"])]],
-              colWidths=[42 * mm, 138 * mm])
+              colWidths=[38 * mm, 121 * mm])
     t.setStyle(TableStyle([
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 0),
@@ -103,7 +105,7 @@ def skill_row(label, items, S):
     return t
 
 
-def header_row(left_para, right_text, S, lw=128 * mm, rw=52 * mm):
+def header_row(left_para, right_text, S, lw=114 * mm, rw=45 * mm):
     """Fila cargo/fecha: izquierda libre, fecha a la derecha. Sin bordes (ATS la lee)."""
     t = Table([[left_para, Paragraph(right_text, S["dateR"])]], colWidths=[lw, rw])
     t.setStyle(TableStyle([
@@ -118,7 +120,7 @@ def header_row(left_para, right_text, S, lw=128 * mm, rw=52 * mm):
 
 def rule():
     return HRFlowable(width="100%", thickness=0.6, color=ACCENT,
-                      spaceBefore=1, spaceAfter=4)
+                      spaceBefore=1, spaceAfter=3)
 
 
 def section(title, S):
@@ -128,9 +130,9 @@ def section(title, S):
 def bullets(items, S):
     return ListFlowable(
         [ListItem(Paragraph(t, S["bullet"]), leftIndent=14, value="•",
-                  spaceBefore=3) for t in items],
+                  spaceBefore=2) for t in items],
         bulletType="bullet", start="•", leftIndent=14, bulletFontName=FONT,
-        bulletFontSize=8.5, spaceBefore=2, spaceAfter=2,
+        bulletFontSize=8.5, spaceBefore=1, spaceAfter=1,
     )
 
 
@@ -138,21 +140,21 @@ def job(j, S, out):
     out.append(header_row(Paragraph(j["title"], S["jobtitle"]), j["date"], S))
     out.append(Paragraph(j["company"], S["company"]))
     out.append(bullets(j["bullets"], S))
-    out.append(Spacer(1, 6))
+    out.append(Spacer(1, 4))
 
 
 def project(p, S, out):
     line = f'<b>{p["name"]}</b> — {p["desc"]}'
     if p.get("link"):
-        line += f' <a href="{p["link"]}"><font color="#0E7C66">{p["link"]}</font></a>'
+        line += f' <a href="{p["link"]}"><u>{p["link"]}</u></a>'
     out.append(Paragraph(line, S["body"]))
-    out.append(Paragraph(f'<font color="#444444">{p["tech"]}</font>', S["meta"]))
-    out.append(Spacer(1, 3))
+    out.append(Paragraph(p["tech"], S["meta"]))
+    out.append(Spacer(1, 2))
 
 
 # ---------------------------------------------------------------- contenido
 PORTFOLIO = "zzloquillozz.github.io/porfolio_AdemirF"
-LINKEDIN = "linkedin.com/in/ademir-fernandez-hernandez-1ab502271"
+LINKEDIN = "linkedin.com/in/ademir-alfredo-fernandez-hernandez-1ab502271"
 GITHUB = "github.com/zZloquilloZz"
 EMAIL = "ademir_fernandez_hernandez03@outlook.com"
 PHONE = "900 569 010"
@@ -188,7 +190,7 @@ DATA = {
             {
                 "title": "Data Analyst / Analista de Automatización & Soporte N1",
                 "company": "Indra Minsait — Proyecto Pangea / NTTData",
-                "date": "Dic 2025 – Actualidad",
+                "date": "Dic 2025 – Jun 2026",
                 "bullets": [
                     "Arquitecté y desarrollé el backend del Hub Operativo N1 en Python (Flask + HTMX + SSE): orquesta ~12 herramientas que el equipo ejecutaba una por una vía SSH, con ejecución en streaming en vivo y un flujo seguro dry-run -> confirmar para operaciones destructivas. Recortó el análisis de incidencias de ~1-2 h a ~20 min y los trabajos operativos (liberaciones/sanity) de 30+ min a 2-3 min, elevando ~50% la producción del equipo (4 analistas) y eliminando la dependencia de licencias de OpenLens.",
                     "Integré el stack BSS/OSS bajo un contrato declarativo único: consumo de APIs GraphQL/Apollo y TM Forum, Camunda BPM (análisis de árboles de procesos y causa raíz), Kafka/Strimzi (reinicio guiado de consumers caídos) y Kubernetes/Azure (AKS), sobre bases multi-motor (PostgreSQL/MySQL/SQL Server).",
@@ -200,7 +202,7 @@ DATA = {
             {
                 "title": "Analista de Soporte Técnico BO — Claro Empresas",
                 "company": "Indra Minsait",
-                "date": "Oct 2024 – Dic 2025",
+                "date": "Nov 2024 – Dic 2025",
                 "bullets": [
                     "Integré Grafana con fuentes de datos personalizadas (bases internas y APIs de monitoreo), mejorando la detección de anomalías en 30% y centralizando la visibilidad operativa del equipo.",
                     "Construí pipelines de extracción y consolidación de incidencias IPTV/OTT desde múltiples fuentes, generando reportes unificados para priorizar casos críticos y optimizar la asignación de recursos.",
@@ -210,7 +212,7 @@ DATA = {
             {
                 "title": "Supervisor de Soporte Técnico — Entel Empresas",
                 "company": "Servicios de Call Center (SCC)",
-                "date": "Ago 2022 – Oct 2024",
+                "date": "Nov 2022 – Nov 2024",
                 "bullets": [
                     "Automaticé la generación de reportes gerenciales con macros VBA y Excel avanzado (tablas dinámicas, fórmulas anidadas) procesando 15,000+ tickets mensuales, reduciendo en 60% el tiempo de los reportes semanales.",
                     "Desarrollé herramientas internas que automatizaron búsquedas y cálculos frecuentes del equipo, reduciendo en 20% el tiempo promedio de atención (TMA) y dando a la gerencia visibilidad completa del rendimiento operativo.",
@@ -265,7 +267,7 @@ DATA = {
             {
                 "title": "Data Analyst / Automation & L1 Support Analyst",
                 "company": "Indra Minsait — Pangea Project / NTTData",
-                "date": "Dec 2025 – Present",
+                "date": "Dec 2025 – Jun 2026",
                 "bullets": [
                     "Architected and built the N1 Operations Hub backend in Python (Flask + HTMX + SSE): orchestrates ~12 tools the team used to run one by one over SSH, with live streaming execution and a safe dry-run -> confirm flow for destructive operations. It cut incident analysis from ~1-2 h to ~20 min and operational tasks (releases/sanity checks) from 30+ min to 2-3 min, raised team output ~50% (4 analysts), and removed the OpenLens license dependency.",
                     "Integrated the BSS/OSS stack under a single declarative contract: GraphQL/Apollo and TM Forum API consumption, Camunda BPM (process-tree and root-cause analysis), Kafka/Strimzi (guided restart of dead consumers), and Kubernetes/Azure (AKS), over multi-engine databases (PostgreSQL/MySQL/SQL Server).",
@@ -277,7 +279,7 @@ DATA = {
             {
                 "title": "Back Office Technical Support Analyst — Claro Enterprise",
                 "company": "Indra Minsait",
-                "date": "Oct 2024 – Dec 2025",
+                "date": "Nov 2024 – Dec 2025",
                 "bullets": [
                     "Integrated Grafana with custom data sources (internal databases and monitoring APIs), improving anomaly detection by 30% and centralizing the team's operational visibility.",
                     "Built extraction and consolidation pipelines for IPTV/OTT incident data from multiple sources, producing unified reports to prioritize critical cases and optimize resource allocation.",
@@ -287,7 +289,7 @@ DATA = {
             {
                 "title": "Technical Support Supervisor — Entel Enterprise",
                 "company": "Servicios de Call Center (SCC)",
-                "date": "Aug 2022 – Oct 2024",
+                "date": "Nov 2022 – Nov 2024",
                 "bullets": [
                     "Automated executive reporting with VBA macros and advanced Excel (pivot tables, nested formulas) processing 15,000+ monthly tickets, cutting weekly report generation time by 60%.",
                     "Built internal tools that automated the team's frequent lookups and calculations, reducing average handling time (AHT) by 20% and giving management full operational visibility.",
@@ -322,8 +324,8 @@ def build(lang):
     path = os.path.join(OUT_DIR, f"CV_Ademir_Fernandez_{lang.upper()}.pdf")
     doc = SimpleDocTemplate(
         path, pagesize=A4,
-        leftMargin=16 * mm, rightMargin=16 * mm,
-        topMargin=14 * mm, bottomMargin=14 * mm,
+        leftMargin=1 * inch, rightMargin=1 * inch,
+        topMargin=1 * inch, bottomMargin=1 * inch,
         title=f"CV — {d['name']}", author=d["name"],
     )
     el = []
@@ -332,9 +334,9 @@ def build(lang):
     el.append(Paragraph(d["role"], S["role"]))
     contact_line = f'{d["loc"]} &nbsp;·&nbsp; {PHONE} &nbsp;·&nbsp; {EMAIL}'
     links_line = (
-        f'Portfolio: <a href="https://{PORTFOLIO}"><font color="#0E7C66">{PORTFOLIO}</font></a> '
-        f'&nbsp;·&nbsp; LinkedIn: <a href="https://{LINKEDIN}"><font color="#0E7C66">{LINKEDIN}</font></a> '
-        f'&nbsp;·&nbsp; GitHub: <a href="https://{GITHUB}"><font color="#0E7C66">{GITHUB}</font></a>'
+        f'Portfolio: <a href="https://{PORTFOLIO}"><u>{PORTFOLIO}</u></a> '
+        f'&nbsp;·&nbsp; LinkedIn: <a href="https://{LINKEDIN}"><u>{LINKEDIN}</u></a> '
+        f'&nbsp;·&nbsp; GitHub: <a href="https://{GITHUB}"><u>{GITHUB}</u></a>'
     )
     el.append(Paragraph(contact_line, S["contact"]))
     el.append(Paragraph(links_line, S["contact"]))

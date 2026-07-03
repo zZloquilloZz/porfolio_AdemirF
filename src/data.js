@@ -118,7 +118,7 @@ export const translations = {
         {
           title: "Data Analyst / Analista de Automatización & Soporte N1",
           company: "Indra Minsait — Proyecto Pangea / NTTData",
-          date: "Dic 2025 – Actualidad",
+          date: "Dic 2025 – Jun 2026",
           bullets: [
             "Diseñé y construí el Hub Operativo N1 (TUI + web con Flask/HTMX/SSE) que unificó las ~12 herramientas que el equipo ejecutaba una por una vía SSH, con ejecución en vivo por streaming y flujo seguro dry-run → confirmar para operaciones destructivas. Recortó el análisis de incidencias de ~1-2 h a ≤20 min y los trabajos operativos (liberaciones/sanity) de 30+ min a 2-3 min, elevando ~50% la producción del equipo (4 analistas) y eliminando la dependencia de licencias de OpenLens.",
             "Integré el stack BSS/OSS bajo un contrato declarativo único: Camunda BPM (análisis de árboles de procesos y detección de causa raíz), GraphQL/Apollo y APIs TM Forum, Kafka/Strimzi (reinicio guiado de consumers caídos), Kubernetes/Azure (AKS) y bases multi-motor (PostgreSQL/MySQL/SQL Server).",
@@ -141,7 +141,7 @@ export const translations = {
         {
           title: "Supervisor de Soporte Técnico — Entel Empresas",
           company: "Servicios de Call Center (SCC)",
-          date: "Dic 2022 – Nov 2024",
+          date: "Nov 2022 – Nov 2024",
           bullets: [
             "Elaboré informes gerenciales procesando 15,000+ tickets mensuales con Excel avanzado (tablas dinámicas, macros VBA, fórmulas anidadas), proporcionando a la gerencia visibilidad completa del rendimiento operativo.",
             "Implementé un sistema de seguimiento de KPIs en Excel con actualización semi-automática que redujo el tiempo de generación de reportes semanales en 60%, eliminando procesos manuales de consolidación.",
@@ -350,7 +350,7 @@ export const translations = {
         {
           title: "Data Analyst / Automation & L1 Support Analyst",
           company: "Indra Minsait — Pangea Project / NTTData",
-          date: "Dec 2025 – Present",
+          date: "Dec 2025 – Jun 2026",
           bullets: [
             "Designed and built the N1 Operations Hub (TUI + web with Flask/HTMX/SSE) that unified the ~12 tools the team used to run one by one over SSH, with live streaming execution and a safe dry-run → confirm flow for destructive operations. It cut incident analysis from ~1-2 h to ≤20 min and operational tasks (releases/sanity checks) from 30+ min to 2-3 min, raised team output ~50% (4 analysts), and removed the OpenLens license dependency.",
             "Integrated the BSS/OSS stack under a single declarative contract: Camunda BPM (process-tree analysis and root-cause detection), GraphQL/Apollo and TM Forum APIs, Kafka/Strimzi (guided restart of dead consumers), Kubernetes/Azure (AKS), and multi-engine databases (PostgreSQL/MySQL/SQL Server).",
@@ -362,7 +362,7 @@ export const translations = {
         {
           title: "Back Office Technical Support Analyst — Claro Enterprise",
           company: "Indra Minsait",
-          date: "Oct 2024 – Dec 2025",
+          date: "Nov 2024 – Dec 2025",
           bullets: [
             "Analyzed FTTH and HFC network monitoring data in Grafana, identifying real-time degradation patterns that enabled early warning alerts and reduced service downtime by 20%.",
             "Integrated Grafana with custom data sources (internal databases, monitoring APIs), improving anomaly detection capability by 30% and centralizing the team's operational visibility.",
@@ -373,7 +373,7 @@ export const translations = {
         {
           title: "Technical Support Supervisor — Entel Enterprise",
           company: "Servicios de Call Center (SCC)",
-          date: "Aug 2022 – Oct 2024",
+          date: "Nov 2022 – Nov 2024",
           bullets: [
             "Produced executive reports processing 15,000+ monthly tickets using advanced Excel (pivot tables, VBA macros, nested formulas), providing management with full operational performance visibility.",
             "Implemented a KPI tracking system in Excel with semi-automated updates that reduced weekly report generation time by 60%, eliminating manual data consolidation processes.",

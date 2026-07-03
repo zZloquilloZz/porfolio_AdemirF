@@ -852,7 +852,7 @@ export default function Portfolio() {
               </div>
               <div style={{ display: "flex", gap: 12, marginTop: 12, flexWrap: "wrap" }}>
                 <a
-                  href="https://www.linkedin.com/in/ademir-fernandez-hernandez-1ab502271"
+                  href="https://www.linkedin.com/in/ademir-alfredo-fernandez-hernandez-1ab502271"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bo"
@@ -922,7 +922,7 @@ export default function Portfolio() {
         <div className="ctn">
           <div className="fls">
             <a
-              href="https://www.linkedin.com/in/ademir-fernandez-hernandez-1ab502271"
+              href="https://www.linkedin.com/in/ademir-alfredo-fernandez-hernandez-1ab502271"
               target="_blank"
               rel="noopener noreferrer"
               className="fl"
