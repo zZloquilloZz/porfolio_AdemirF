@@ -8,9 +8,9 @@ Personal portfolio website for Ademir Fernández — a bilingual (ES/EN) single-
 
 ## Commands
 
-- `npm run dev` — start local dev server
-- `npm run build` — production build to `dist/`
-- `npm run preview` — preview production build locally
+- `pnpm dev` — start local dev server
+- `pnpm build` — production build to `dist/`
+- `pnpm preview` — preview production build locally
 
 No linter, formatter, or test runner is configured.
 
@@ -31,7 +31,7 @@ Key internal components (all in `Portfolio.jsx`):
 
 ## Deployment
 
-GitHub Actions workflow (`.github/workflows/deploy.yml`) auto-deploys on push to `main`: `npm ci` → `npm run build` → deploy `dist/` to GitHub Pages.
+GitHub Actions workflow (`.github/workflows/deploy.yml`) auto-deploys on push to `main`: `pnpm install --frozen-lockfile` → `pnpm run build` → deploy `dist/` to GitHub Pages.
 
 ## Static Assets
 
